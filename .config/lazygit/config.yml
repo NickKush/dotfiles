@@ -1,0 +1,7 @@
+# Documentation https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md 
+
+os:
+    editCommand: 'vim'
+    editCommandTemplate: '{{editor}} {{filename}}'
+    
+notARepository: 'skip'  # Skip if there's no `git` repository in current folder
