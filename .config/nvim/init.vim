@@ -12,7 +12,7 @@ set shell=/bin/bash
 :set shiftwidth=4      " When shifting, indent using four spaces
 :set smarttab          " Insert “tabstop” number of spaces when the “tab” key is pressed
 :set mouse=a           " Enable mouse for scrolling and resizing
-
+:set guicursor=		   " I prefer big caret in `Insert mode`
 
 
 " --------------------------------------------------------------
