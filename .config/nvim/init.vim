@@ -5,17 +5,31 @@ set shell=/bin/bash
 " --------------------------------------------------------------
 "              - Basic parameters -
 " --------------------------------------------------------------
-    
+
+:set number            " Show line number
 :set relativenumber    " Show line number on the current line and relative numbers on all other lines
+
 :set autoindent        " New lines inherit the indentation of previous lines.
+
 :set tabstop=4         " Visual tab with 4 space width 
 :set softtabstop=4     " Show tab with 4 space width when added
 :set expandtab         " User spaces, not tabs
 :set shiftwidth=4      " When shifting, indent using four spaces
 :set smarttab          " Insert “tabstop” number of spaces when the “tab” key is pressed
+
 :set mouse=a           " Enable mouse for scrolling and resizing
 :set guicursor=        " I prefer big caret in `Insert mode`
+:set noerrorbells      " I don't like this sound...
+:set scrolloff=8       " Offset buffer scroll
 
+:set nohlsearch        " Don't highlight search results
+
+:set hidden            " Buffer is not unloaded when you close current buffer
+
+:set noswapfile               " Don't store swap file
+:set nobackup                 " Don't store backup file
+:set undodir=~/.vim/undo_dir  " Store undo history in this directory
+:set undofile                 " Use undo file
 
 " --------------------------------------------------------------
 "              - Plugins -
