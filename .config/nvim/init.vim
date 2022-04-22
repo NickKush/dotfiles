@@ -40,7 +40,9 @@ call plug#begin()
 " Gui enchancements
 Plug 'itchyny/lightline.vim'          " Status bar
 Plug 'machakann/vim-highlightedyank'  " Highligh yank zone
-Plug 'morhetz/gruvbox'                " Color scheme
+
+" Color scheme
+Plug 'gruvbox-community/gruvbox'     " Color scheme
 
 call plug#end()
 
