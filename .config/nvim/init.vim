@@ -40,17 +40,21 @@ call plug#begin()
 " Gui enchancements
 Plug 'itchyny/lightline.vim'          " Status bar
 Plug 'machakann/vim-highlightedyank'  " Highligh yank zone
+Plug 'preservim/nerdtree'             " Nerd tree
 
 " Color scheme
 Plug 'gruvbox-community/gruvbox'     " Color scheme
 
 " Telescope
-Plug 'https://github.com/nvim-lua/plenary.nvim'          " Required lib
-Plug 'https://github.com/nvim-telescope/telescope.nvim'  " Project finder
-Plug 'https://github.com/nvim-telescope/telescope-fzy-native.nvim' " Fzf for telescope
+Plug 'nvim-lua/plenary.nvim'          " Required lib
+Plug 'nvim-telescope/telescope.nvim'  " Project finder
+Plug 'nvim-telescope/telescope-fzy-native.nvim' " Fzf for telescope
 
 " Undo tree
-Plug 'https://github.com/mbbill/undotree'
+Plug 'mbbill/undotree'
+
+" Commentary
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
@@ -59,8 +63,14 @@ call plug#end()
 "              - Plugins Settings -
 " --------------------------------------------------------------
 	
+" highlightedyank
 let g:highlightedyank_highlight_duration = 200  " Faster visual selection
 
+" Nerd tree
+nnoremap <F2> :NERDTree<CR>
+
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
 
 " --------------------------------------------------------------
 "              - Colors -
