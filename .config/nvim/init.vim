@@ -45,9 +45,18 @@ colorscheme gruvbox
 	
 
 " --------------------------------------------------------------
-"              - Keybinding reset - 
+"              - Keybinding - 
 " --------------------------------------------------------------
+let mapleader = " "
+
+" Reset arrow keys because I can
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
+" Copy to clipboard
+vnoremap  <leader>y  "+y
+
+" Paste from clipboard
+nnoremap <leader>p "+p
