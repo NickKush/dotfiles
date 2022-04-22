@@ -7,8 +7,9 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # Install neovim
-apt update && \
-  DEBIAN_FRONTEND=noninteractive apt --no-install-recommends install -yq \
+add-apt-repository ppa:neovim-ppa/stable && \
+  apt update && \
+  apt --no-install-recommends install -yq \
     neovim
 
 # Link neovim in vim shortcut
