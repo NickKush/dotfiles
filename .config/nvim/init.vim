@@ -67,11 +67,15 @@ colorscheme gruvbox
 " --------------------------------------------------------------
 let mapleader = " "
 
-" Reset arrow keys because I can
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+" Reset arrow keys. Use the 'vim' keymap
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
 
 " Copy to clipboard
 vnoremap  <leader>y  "+y
