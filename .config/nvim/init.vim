@@ -22,7 +22,7 @@ set shell=/bin/bash
 :set noerrorbells      " I don't like this sound...
 :set scrolloff=8       " Offset buffer scroll
 
-:set nohlsearch        " Don't highlight search results
+" :set nohlsearch        " Don't highlight search results
 
 :set hidden            " Buffer is not unloaded when you close current buffer
 
@@ -78,3 +78,10 @@ vnoremap  <leader>y  "+y
 
 " Paste from clipboard
 nnoremap <leader>p "+p
+
+" Ctrl+H to stop searching (eg. CancelHighligh)
+vnoremap <C-h> :nohlsearch<cr>
+nnoremap <C-h> :nohlsearch<cr>
+
+
+
