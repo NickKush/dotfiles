@@ -44,6 +44,14 @@ Plug 'machakann/vim-highlightedyank'  " Highligh yank zone
 " Color scheme
 Plug 'gruvbox-community/gruvbox'     " Color scheme
 
+" Telescope
+Plug 'https://github.com/nvim-lua/plenary.nvim'          " Required lib
+Plug 'https://github.com/nvim-telescope/telescope.nvim'  " Project finder
+Plug 'https://github.com/nvim-telescope/telescope-fzy-native.nvim' " Fzf for telescope
+
+" Undo tree
+Plug 'https://github.com/mbbill/undotree'
+
 call plug#end()
 
 
