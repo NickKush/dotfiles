@@ -22,6 +22,8 @@ set shell=/bin/bash
 :set noerrorbells      " I don't like this sound...
 :set scrolloff=8       " Offset buffer scroll
 
+:set encoding=utf-8
+
 " :set nohlsearch        " Don't highlight search results
 
 :set hidden            " Buffer is not unloaded when you close current buffer
@@ -55,6 +57,10 @@ Plug 'mbbill/undotree'
 
 " Commentary
 Plug 'tpope/vim-commentary'
+
+" LSP
+Plug 'neovim/nvim-lspconfig'            " Enable LSP
+Plug 'williamboman/nvim-lsp-installer'  " LSP Language server installer
 
 call plug#end()
 
