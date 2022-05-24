@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Download the latest version of lazygit
 # https://github.com/jesseduffield/lazygit
 # 
@@ -6,14 +8,14 @@
 
 # Make sure we start this script with sudo/root 
 if [[ $EUID -ne 0 ]]; then
-   echo "install.sh must be run as root"
+   echo "lazygit.sh must be run as root"
    exit 1
 fi
 
 
 TEMP_FOLDER="/tmp/lazygit_download"
 
-LAZYGIT_URL=$(curl -s https://api.github.com/repos/jesseduffield/lazygit/releases/latest \
+DOWNLOAD_URL=$(curl -s https://api.github.com/repos/jesseduffield/lazygit/releases/latest \
     | grep "browser_download_url" \
     | grep Linux_x86_64.tar.gz \
     | cut -d '"' -f 4
