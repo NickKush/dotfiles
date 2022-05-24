@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 mkdir -p ~/.config/nvim
 
 for file in `find nvim -regex ".*\.vim$"`; do

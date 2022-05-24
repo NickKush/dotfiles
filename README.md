@@ -11,4 +11,4 @@ just a dot files
 
 
 * Neovim
-    - [ ] Fix neovim installation script. Should download from github not from ppa:launchpad. It sucks..
+    - [x] Fix neovim installation script. Should download from github not from ppa:launchpad. It sucks..
