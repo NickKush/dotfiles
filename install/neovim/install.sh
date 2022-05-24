@@ -7,11 +7,11 @@
 
 # Make sure we start this script with sudo/root 
 if [[ $EUID -ne 0 ]]; then
-   echo "neovim.sh must be run as root"
+   echo "neovim install.sh must be run as root"
    exit 1
 fi
 
-# Install neovim
+# # Install neovim
 TEMP_FOLDER="/tmp/neovim_download"
 
 DOWNLOAD_URL=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest \
@@ -28,3 +28,4 @@ rm -rf ${TEMP_FOLDER}
 
 # Link neovim in vim shortcut
 ln -sf $(which nvim) /usr/local/bin/vim
+
