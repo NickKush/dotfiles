@@ -97,6 +97,14 @@ nnoremap <leader>p "+p
 vnoremap <C-h> :nohlsearch<cr>
 nnoremap <C-h> :nohlsearch<cr>
 
+" Split buffers
+nnoremap <silent> <leader>ss :split<cr><C-w>w<cr>
+nnoremap <silent> <leader>sv :vsplit<cr><C-w>w<cr>
+
+nnoremap <c-j> <c-w>j
+nnoremap <c-h> <c-w>h
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 
 " --------------------------------------------------------------
 "              - Plugins Settings -
