@@ -12,3 +12,4 @@ just a dot files
 
 * Neovim
     - [x] Fix neovim installation script. Should download from github not from ppa:launchpad. It sucks..
+    - [ ] If we don't have a plugin we got an error at start. maybe we can fix this?
