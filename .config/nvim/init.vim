@@ -132,7 +132,7 @@ let g:NERDTreeDirArrowCollapsible = '-'
 lua << EOF
 
 require("nvim-lsp-installer").setup {
-    ensure_installed = { 'pyright' },
+    ensure_installed = { 'pyright', 'rust_analyzer' },
 
     automatic_installation = false,
 }
@@ -165,7 +165,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local servers = { 'pyright' }
+local servers = { 'pyright', 'rust_analyzer' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
