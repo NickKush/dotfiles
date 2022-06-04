@@ -113,6 +113,16 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
+" Terminal keybinds
+tnoremap <Esc> <c-\><c-n>
+
+tnoremap <a-h> <c-\><c-n> <c-w>h
+tnoremap <a-j> <c-\><c-n> <c-w>j
+tnoremap <a-k> <c-\><c-n> <c-w>k
+tnoremap <a-l> <c-\><c-n> <c-w>l
+
+
+
 " --------------------------------------------------------------
 "              - Plugins Settings -
 " --------------------------------------------------------------
