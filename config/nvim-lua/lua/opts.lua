@@ -18,7 +18,7 @@ opt.updatetime = 50  -- Default value is 4000ms, and it's a poop
 
 -- UI -- 
 opt.number = true           -- Show line number
-opt.relativenumver = true   -- Show line number on the current line and relative numbers on all other lines
+opt.relativenumber = true   -- Show line number on the current line and relative numbers on all other lines
 opt.laststatus = 3          -- Global status line
 opt.scrolloff = 8           -- Offset buffer scroll
 opt.signcolumn = "yes"      -- 
