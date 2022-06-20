@@ -22,6 +22,7 @@ opt.relativenumber = true   -- Show line number on the current line and relative
 opt.laststatus = 3          -- Global status line
 opt.scrolloff = 8           -- Offset buffer scroll
 opt.signcolumn = "yes"      -- 
+opt.termguicolors = true    -- Enable 24-bit color mode
 
 -- Tabs, indent --
 
