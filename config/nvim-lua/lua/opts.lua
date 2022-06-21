@@ -15,6 +15,7 @@ opt.undofile = true    -- Use undo files (for plugins and etc)
 opt.undodir = os.getenv("HOME") .. "/.vim/undo_dir"  -- Store undo files in that directory
 opt.hidden = true    -- Buffer is not unloaded when you close a buffer
 opt.updatetime = 50  -- Default value is 4000ms, and it's a poop
+opt.clipboard = 'unnamedplus'  -- Copy/paste to system clipboard
 
 -- UI -- 
 opt.number = true           -- Show line number
