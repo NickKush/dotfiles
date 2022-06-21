@@ -101,8 +101,7 @@ vnoremap  <leader>y  "+y
 nnoremap <leader>p "+p
 
 " Ctrl+H to stop searching (eg. CancelHighligh)
-vnoremap <C-h> :nohlsearch<cr>
-nnoremap <C-h> :nohlsearch<cr>
+nnoremap <leader>h :nohlsearch<cr>
 
 " Split buffers
 nnoremap <silent> <leader>ss :split<cr><C-w>w<cr>
