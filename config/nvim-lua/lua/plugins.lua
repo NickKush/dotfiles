@@ -7,4 +7,10 @@ return require('packer').startup(function()
     
     -- Color scheme
     use "gruvbox-community/gruvbox"
+
+    -- Commentary
+    use "tpope/vim-commentary"
+
+    -- Gui echancements
+    use "machakann/vim-highlightedyank"
 end)
