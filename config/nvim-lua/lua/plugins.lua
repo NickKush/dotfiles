@@ -13,4 +13,8 @@ return require('packer').startup(function()
 
     -- Gui echancements
     use "machakann/vim-highlightedyank"
+
+    -- LSP
+    use "williamboman/nvim-lsp-installer"  -- lsp server installer
+    use "neovim/nvim-lspconfig"   -- enable lsp
 end)
