@@ -1,9 +1,6 @@
 require('opts')
-require('plugins')
 require('keymaps')
 require('colors')
+require('plugins')
 
--- TODO: fix it
-require('plugins/vim-highlightedyank')
-require('plugins/nvim-lspconfig')
-require('plugins/nvim-cmp')
+require('plugins/init')

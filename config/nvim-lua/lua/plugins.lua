@@ -1,5 +1,4 @@
 
-
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
@@ -13,6 +12,8 @@ return require('packer').startup(function()
 
     -- Gui echancements
     use "machakann/vim-highlightedyank"
+    use "nvim-lualine/lualine.nvim"
+--    use "kyazdani42/nvim-web-devicons"
 
     -- LSP
     use "williamboman/nvim-lsp-installer"  -- lsp server installer
