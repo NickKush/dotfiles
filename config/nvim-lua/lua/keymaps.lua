@@ -3,8 +3,10 @@ local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 
--- Leader is a spacebar
-vim.g.mapleader = ' ' 
+-- Map space as a leader key
+keymap('', '<space>', '<nop>', opts)
+vim.g.mapleader = " " 
+vim.g.maplocalleader = " "
 
 
 
