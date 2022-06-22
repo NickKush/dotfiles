@@ -16,7 +16,7 @@ opt.undodir = os.getenv("HOME") .. "/.vim/undo_dir"  -- Store undo files in that
 opt.hidden = true    -- Buffer is not unloaded when you close a buffer
 opt.updatetime = 50  -- Default value is 4000ms, and it's a poop
 opt.clipboard = 'unnamedplus'  -- Copy/paste to system clipboard
-opt.completeopt = { "menuone", "noselect" },  -- For cmp
+opt.completeopt = { "menuone", "noselect" }  -- For cmp
 
 -- UI -- 
 opt.number = true           -- Show line number
