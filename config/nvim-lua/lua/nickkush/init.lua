@@ -11,6 +11,7 @@ require('nickkush.lsp')
 require('nickkush.lualine')
 require('nickkush.cmp')
 require('nickkush.hightlightedyank')
+require('nickkush.telescope')
 
 
 

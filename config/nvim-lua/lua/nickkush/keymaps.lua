@@ -47,3 +47,6 @@ keymap('t', '<a-h>', '<c-\\><c-n><c-w>h', opts)
 keymap('t', '<a-k>', '<c-\\><c-n><c-w>k', opts)
 keymap('t', '<a-l>', '<c-\\><c-n><c-w>l', opts)
 
+
+-- Telescope
+keymap('n', '<leader>n', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)

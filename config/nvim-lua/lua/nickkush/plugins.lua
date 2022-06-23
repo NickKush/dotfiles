@@ -7,9 +7,10 @@ return require('packer').startup(function()
     -- Color scheme
     use "gruvbox-community/gruvbox"
 
-    -- Commentary
-    use "tpope/vim-commentary"
-
+    -- QoL
+    use("tpope/vim-commentary")   -- Comments
+    use("tpope/vim-surround")     -- brackets, quotes and etc
+    
     -- Gui echancements
     use "machakann/vim-highlightedyank"
     use "nvim-lualine/lualine.nvim"
@@ -25,4 +26,10 @@ return require('packer').startup(function()
     use "hrsh7th/cmp-path"
     use "hrsh7th/cmp-cmdline"
     use "hrsh7th/nvim-cmp"
+
+    -- Telescope 
+    use {
+        "nvim-telescope/telescope.nvim",
+        requires = { { "nvim-lua/plenary.nvim" } }
+    }
 end)
