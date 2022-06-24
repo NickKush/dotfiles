@@ -12,6 +12,7 @@ require('nickkush.lualine')
 require('nickkush.cmp')
 require('nickkush.hightlightedyank')
 require('nickkush.telescope')
+require('nickkush.nvim-tree')
 
 
 

@@ -14,7 +14,7 @@ return require('packer').startup(function()
     -- Gui echancements
     use "machakann/vim-highlightedyank"
     use "nvim-lualine/lualine.nvim"
---    use "kyazdani42/nvim-web-devicons"
+    use "kyazdani42/nvim-web-devicons"
 
     -- LSP
     use "williamboman/nvim-lsp-installer"  -- lsp server installer
@@ -32,4 +32,7 @@ return require('packer').startup(function()
         "nvim-telescope/telescope.nvim",
         requires = { { "nvim-lua/plenary.nvim" } }
     }
+
+    -- File tree
+    use "kyazdani42/nvim-tree.lua"
 end)
