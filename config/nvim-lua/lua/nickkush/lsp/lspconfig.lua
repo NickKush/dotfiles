@@ -6,7 +6,10 @@ if not success then
 end
 
 local servers = {
-    'pyright'
+    'pyright',
+    'tsserver',
+    'tailwindcss',
+    'vuels',
 }
 
 lsp_installer.setup {

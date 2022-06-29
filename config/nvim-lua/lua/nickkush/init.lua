@@ -13,6 +13,7 @@ require('nickkush.cmp')
 require('nickkush.hightlightedyank')
 require('nickkush.telescope')
 require('nickkush.nvim-tree')
+require('nickkush.treesitter')
 
 
 

@@ -35,4 +35,6 @@ return require('packer').startup(function()
 
     -- File tree
     use "kyazdani42/nvim-tree.lua"
+
+    use("nvim-treesitter/nvim-treesitter")
 end)
