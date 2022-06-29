@@ -62,16 +62,35 @@ local on_attach = function(client, bufnr)
     keymap('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
--- TODO: We can use for loop for this initialization
-
 local lsp_flags = {
     debounce_txt_changes = 150,
 }
 
+local opts = {}
+
 for _, server in pairs(servers) do
-    lsp_config[server].setup {
+    opts = {
         on_attach = on_attach,
-        flags = lsp_flags
+        flags = lsp_flags,
     }
+    -- print(server) 
+
+    if server == "pyright" then
+        local server_opts = {
+            settings = {
+                python = {
+                    analysis = {
+                        useLibraryCodeForTypes = true,
+                    },
+                    venvPath = "./venv"
+                }
+            }
+        }
+        opts = vim.tbl_deep_extend("force", server_opts, opts)
+    end
+
+    -- print(vim.inspect(opts))
+
+    lsp_config[server].setup(opts)
 end
 
