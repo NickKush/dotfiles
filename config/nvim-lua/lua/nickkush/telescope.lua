@@ -9,7 +9,8 @@ local ignore_files = {
     ".git/",
     "node_modules/",
     "venv*/",
-
+    "__pycache__/",
+    "htmlcov/"
 }
 
 
