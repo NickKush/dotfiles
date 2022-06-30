@@ -59,7 +59,7 @@ local on_attach = function(client, bufnr)
     keymap('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     keymap('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
     keymap('n', 'gr', vim.lsp.buf.references, bufopts)
-    keymap('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+    -- keymap('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
 local lsp_flags = {
