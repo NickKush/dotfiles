@@ -116,6 +116,7 @@ for _, server in pairs(servers) do
                     vetur = {
                         completion = {
                             autoImport = true,
+                            tagCasing = "inital",
                             useScaffoldSnippets = true
                         },
                         useWorkspaceDependencies = true
