@@ -109,6 +109,25 @@ for _, server in pairs(servers) do
         end,
     }
 
+    if server == "vuels" then
+        local server_opts = {
+            init_options = {
+                config = {
+                    vetur = {
+                        completion = {
+                            autoImport = true,
+                            useScaffoldSnippets = true
+                        },
+                        useWorkspaceDependencies = true
+                    }
+                }
+            }
+        }
+        opts = vim.tbl_deep_extend("force", server_opts, opts)
+    end
+   
+    -- print(vim.inspect(opts))
+
     lsp_config[server].setup(opts)
 end
 
