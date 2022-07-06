@@ -11,5 +11,11 @@
     - [ ] Autoinstall install rg for telescope's live_grep
         https://github.com/BurntSushi/ripgrep
 
-    - [ ] Lsp for js/ts/vue
-    - [ ] Highlighting for python
+    - [x] Lsp for js/ts/vue
+    - [x] Highlighting for python
+
+    - [ ] Option to search for hidden files 
+         Telescope find_files hidden=true no_ignore=true 
+
+    - [ ] autocomplete for `vue` storage and components
+    - [ ] `vue` `js` `ts` autoimport???
