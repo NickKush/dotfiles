@@ -19,13 +19,20 @@ lsp_installer.setup {
 }
 
 
-
 -- Setup LSP config
 
 local success, lsp_config = pcall(require, 'lspconfig')
 if not success then
     return
 end
+
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true,
+}
 
 -- Mapping
 local keymap = vim.keymap.set
@@ -62,6 +69,29 @@ local on_attach = function(client, bufnr)
     -- keymap('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
+
+local util = require("lspconfig/util")
+local path = util.path
+
+local function get_python_path(workspace)
+  -- Use activated venv
+  if vim.env.VIRTUAL_ENV then
+    return path.join(vim.env.VIRTUAL_ENV, 'bin', 'python3')
+  end
+
+  -- Find and use virtualenv in workspace directory.
+  for _, pattern in ipairs({'*', '.*'}) do
+    local match = vim.fn.glob(path.join(workspace, pattern, 'pyvenv.cfg'))
+    if match ~= '' then
+      return path.join(path.dirname(match), 'bin', 'python3')
+    end
+  end
+
+  -- Fallback to system Python.
+  return exepath('python3') or exepath('python') or 'python3' or 'python'
+end
+
+
 local lsp_flags = {
     debounce_txt_changes = 150,
 }
@@ -72,25 +102,28 @@ for _, server in pairs(servers) do
     opts = {
         on_attach = on_attach,
         flags = lsp_flags,
+        on_init = function(client)
+            if server == "pyright" then
+                client.config.settings.python.pythonPath = get_python_path(client.config.root_dir)
+            end
+        end,
     }
-    -- print(server) 
-
-    if server == "pyright" then
-        local server_opts = {
-            settings = {
-                python = {
-                    analysis = {
-                        useLibraryCodeForTypes = true,
-                    },
-                    venvPath = "./venv"
-                }
-            }
-        }
-        opts = vim.tbl_deep_extend("force", server_opts, opts)
-    end
-
-    -- print(vim.inspect(opts))
 
     lsp_config[server].setup(opts)
 end
 
+-- TEST 
+-- lsp_config.pyright.setup{
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     on_init = function(client)
+--         client.config.settings.python.pythonPath = get_python_path(client.config.root_dir)
+--     end,
+--     -- settings = {
+--     --     python = {
+--     --         pythonPath ="",
+ 
+--     --     }
+--     -- },
+--     flags = lsp_flags,
+-- }

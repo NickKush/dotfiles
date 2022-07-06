@@ -19,6 +19,7 @@ return require('packer').startup(function()
     -- LSP
     use "williamboman/nvim-lsp-installer"  -- lsp server installer
     use "neovim/nvim-lspconfig"   -- enable lsp
+    use ("jose-elias-alvarez/null-ls.nvim") -- language server
     
     -- autocomplete
     use "hrsh7th/cmp-nvim-lsp"
@@ -30,7 +31,7 @@ return require('packer').startup(function()
     -- Telescope 
     use {
         "nvim-telescope/telescope.nvim",
-        requires = { { "nvim-lua/plenary.nvim" } }
+        requires = { { "nvim-lua/plenary.nvim" } },
     }
 
     -- File tree
