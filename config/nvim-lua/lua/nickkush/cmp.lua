@@ -31,17 +31,13 @@ cmp.setup({
     sources = {
         { name = "nvim_lsp", group_index = 1 },
         { name = "luasnip", group_index = 1 },
-
         { name = "buffer", group_index = 2 },
+    },
 
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
     }
-    -- sources = cmp.config.sources({
-    --     { name = "nvim_lsp" },
-    --     { name = "luasnip" },
-    -- },
-    -- {
-    --     { name = "buffer" }
-    -- }),
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
