@@ -20,13 +20,20 @@ return require('packer').startup(function()
     use("williamboman/nvim-lsp-installer") -- lsp server installer
     use("neovim/nvim-lspconfig")           -- main lsp plugin for EVERYTHING 
     use("jose-elias-alvarez/null-ls.nvim") -- language server
+
+    -- Treesitter 
+    use("nvim-treesitter/nvim-treesitter")
     
-    -- autocomplete
+    -- Autocomplete
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-path")
     use("hrsh7th/cmp-cmdline")
     use("hrsh7th/nvim-cmp")
+
+    -- Snippets
+    use("L3MON4D3/LuaSnip")
+    use("saadparwaiz1/cmp_luasnip")
 
     -- Telescope 
     use({
@@ -38,6 +45,4 @@ return require('packer').startup(function()
 
     -- File tree
     use("kyazdani42/nvim-tree.lua")
-
-    use("nvim-treesitter/nvim-treesitter")
 end)

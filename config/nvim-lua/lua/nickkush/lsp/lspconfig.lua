@@ -26,13 +26,21 @@ if not success then
     return
 end
 
-
+-- Capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true,
-}
+
+local success, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not success then
+  return
+end
+
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+-- capabilities.textDocument.foldingRange = {
+--   dynamicRegistration = true,
+--   lineFoldingOnly = true,
+-- }
+
 
 -- Mapping
 local keymap = vim.keymap.set
@@ -102,6 +110,7 @@ for _, server in pairs(servers) do
     opts = {
         on_attach = on_attach,
         flags = lsp_flags,
+        capabilities = capabilities,
         on_init = function(client)
             if server == "pyright" then
                 client.config.settings.python.pythonPath = get_python_path(client.config.root_dir)
