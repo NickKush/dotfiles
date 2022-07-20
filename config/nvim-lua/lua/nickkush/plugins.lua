@@ -20,6 +20,7 @@ return require('packer').startup(function()
     use("williamboman/nvim-lsp-installer") -- lsp server installer
     use("neovim/nvim-lspconfig")           -- main lsp plugin for EVERYTHING 
     use("jose-elias-alvarez/null-ls.nvim") -- language server
+    use("ray-x/lsp_signature.nvim")        -- Function signatures
 
     -- Treesitter 
     use("nvim-treesitter/nvim-treesitter")
