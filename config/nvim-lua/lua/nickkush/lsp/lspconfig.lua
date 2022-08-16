@@ -128,7 +128,12 @@ for _, server in pairs(servers) do
                             tagCasing = "inital",
                             useScaffoldSnippets = true
                         },
-                        useWorkspaceDependencies = true
+                        useWorkspaceDependencies = true,
+                        validation = {
+                            script = true,
+                            style = true,
+                            template = true,
+                        },
                     }
                 }
             }
