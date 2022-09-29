@@ -8,3 +8,12 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
         })
     end,
 })
+
+-- Change mode to "insert" when we enter in terminal
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    pattern = { "term://*" },
+    callback = function() 
+        vim.cmd("startinsert!")
+    end, 
+})
+
