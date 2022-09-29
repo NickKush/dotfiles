@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ln -sf $(realpath ".tmux.conf") ~/.config/.tmux.conf
+ln -sf $(realpath "tmux.conf") ~/.tmux.conf
