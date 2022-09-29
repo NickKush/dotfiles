@@ -12,7 +12,7 @@ return require('packer').startup(function()
     use("tpope/vim-surround")     -- brackets, quotes and etc
     
     -- Gui echancements
-    use("machakann/vim-highlightedyank")
+    -- use("machakann/vim-highlightedyank")
     use("nvim-lualine/lualine.nvim")
     use("kyazdani42/nvim-web-devicons")
 
