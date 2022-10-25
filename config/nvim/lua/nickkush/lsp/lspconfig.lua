@@ -27,15 +27,17 @@ if not success then
 end
 
 -- Capabilities
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local success, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not success then
   return
 end
 
+
+local capabilities = cmp_nvim_lsp.default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+-- capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 -- capabilities.textDocument.foldingRange = {
 --   dynamicRegistration = true,
 --   lineFoldingOnly = true,
@@ -141,23 +143,5 @@ for _, server in pairs(servers) do
         opts = vim.tbl_deep_extend("force", server_opts, opts)
     end
    
-    -- print(vim.inspect(opts))
-
     lsp_config[server].setup(opts)
 end
-
--- TEST 
--- lsp_config.pyright.setup{
---     on_attach = on_attach,
---     capabilities = capabilities,
---     on_init = function(client)
---         client.config.settings.python.pythonPath = get_python_path(client.config.root_dir)
---     end,
---     -- settings = {
---     --     python = {
---     --         pythonPath ="",
- 
---     --     }
---     -- },
---     flags = lsp_flags,
--- }
