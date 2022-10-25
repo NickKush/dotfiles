@@ -4,7 +4,7 @@ local colorscheme = "gruvbox"
 
 local success, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not success then
-    vim.notify("Color scheme " .. colorscheme .. " not found")
+    -- vim.notify("Color scheme " .. colorscheme .. " not found")
     return
 end
 
