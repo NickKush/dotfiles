@@ -22,8 +22,8 @@ DOWNLOAD_URL=$(curl -s https://api.github.com/repos/jesseduffield/lazygit/releas
 )
 
 mkdir -p ${TEMP_FOLDER} && \
-    curl -s -L --create-dirs -o ${TEMP_FOLDER}/lazygit.tar.gz "$LAZYGIT_URL" && \
-    tar -xf ${TEMP_FOLDER}/lazygit.tar.gz -C ${TEMP_FOLDER} lazygit && \
-    cp ${TEMP_FOLDER}/lazygit /usr/local/bin/lazygit
+curl -s -L --create-dirs -o ${TEMP_FOLDER}/lazygit.tar.gz "$DOWNLOAD_URL" && \
+tar -xf ${TEMP_FOLDER}/lazygit.tar.gz -C ${TEMP_FOLDER} lazygit && \
+cp ${TEMP_FOLDER}/lazygit /usr/local/bin/lazygit
 
 rm -rf ${TEMP_FOLDER}
