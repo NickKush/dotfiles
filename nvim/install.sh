@@ -21,7 +21,7 @@ DOWNLOAD_URL=$(curl -s https://api.github.com/repos/neovim/neovim/releases/lates
 )
 
 mkdir -p ${TEMP_FOLDER} && \
-    curl -s -L --create-dirs -o ${TEMP_FOLDER}/nvim-linux64.deb "$DOWNLOAD_URL" && \
+    curl -sLo --create-dirs ${TEMP_FOLDER}/nvim-linux64.deb "$DOWNLOAD_URL" && \
     dpkg --install --force-overwrite ${TEMP_FOLDER}/nvim-linux64.deb    
 
 rm -rf ${TEMP_FOLDER}
@@ -29,3 +29,14 @@ rm -rf ${TEMP_FOLDER}
 # Link neovim in vim shortcut
 ln -sf $(which nvim) /usr/local/bin/vim
 
+
+## Install fg for telescope
+curl -sLO "https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb"
+dpkg --install --force-overwrite ripgrep_13.0.0_amd64.deb
+rm -f ripgrep_13.0.0_amd64.deb
+
+
+## Install fd for telescope
+curl -sLO "https://github.com/sharkdp/fd/releases/download/v8.4.0/fd-musl_8.4.0_amd64.deb"
+dpkg --install --force-overwrite fd-musl_8.4.0_amd64.deb
+rm -f fd-musl_8.4.0_amd64.deb
