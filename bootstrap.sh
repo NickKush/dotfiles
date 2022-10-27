@@ -10,12 +10,7 @@ echo "Updating packages..."
 apt update -y
 
 echo "Install essential packages..."
-apt install -y curl \
-    xclip \
-    vim \
-    wget \
-    build-essential \
-    npm
+apt install -y curl xclip vim wget build-essential npm tmux
 
 echo "Install stuff"
 for i in lazygit nvim; do
