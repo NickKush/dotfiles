@@ -3,17 +3,17 @@ if not success then
     return
 end
 
--- treesitter.setup {
---     ensure_installed = {
---         'css',
---         'html',
---         'javascript',
---         'json',
---         'lua',
---         'python',
---         'typescript',
---         'vue'
---     },
---     highlight = { enable = true },
--- }
+treesitter.setup {
+    ensure_installed = {
+        'css',
+        'html',
+        'javascript',
+        'json',
+        'lua',
+        'python',
+        'typescript',
+        'vue'
+    },
+    highlight = { enable = true },
+}
 
