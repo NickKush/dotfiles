@@ -48,13 +48,5 @@ keymap('t', '<a-k>', '<c-\\><c-n><c-w>k', opts)
 keymap('t', '<a-l>', '<c-\\><c-n><c-w>l', opts)
 
 
--- Telescope
-keymap('n', '<leader>n', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
-keymap('n', '<F12>', "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
-keymap("n", "<leader>f", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
-keymap("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
-keymap("n", "<leader>]", "<cmd>lua require('telescope.builtin').find_files({ hidden = true, no_ignore = true })<cr>", opts)
-
-
 -- File Tree
 keymap('n', '<F2>', "<cmd>lua require('nvim-tree').toggle()<cr>", opts)

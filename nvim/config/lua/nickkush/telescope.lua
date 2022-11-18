@@ -4,6 +4,7 @@ if not success then
 end
 
 local actions = require('telescope.actions')
+local builtin = require('telescope.builtin')
 
 local ignore_files = {
     ".git/",
@@ -14,9 +15,30 @@ local ignore_files = {
 }
 
 
+-- Keymaps
+local keymap = vim.keymap.set
+
+keymap('n', '<leader>n', builtin.find_files, {})
+keymap('n', '<F12>',     builtin.help_tags, {})
+keymap("n", "<leader>f", builtin.live_grep, {})
+keymap("n", "<leader>b", builtin.buffers, {})
+
+keymap("n", "<leader>]", function() 
+    builtin.find_files({ hidden = true, no_ignore = true }) 
+end, {})
+
+
+-- Setup
 telescope.setup {
     defaults = {
         file_ignore_patterns = ignore_files,
+        
+        layout_config = {
+            horizontal = { 
+                prompt_position = "top"
+            },
+        },
+
 
         mappings = {
             i = {
@@ -57,6 +79,17 @@ telescope.setup {
                 ["<PageUp"] = actions.results_scrolling_up,
                 ["<PageDown>"] = actions.results_scrolling_down,
             }
+        }
+    },
+
+    pickers = {
+        find_files = {
+            previewer = false
+        },
+
+        buffers = {
+            theme = "dropdown",
+            previewer = false,
         }
     }
 }
