@@ -11,15 +11,7 @@ vim.cmd("highlight NvimTreeEmptyFolderName guifg=gray")
 nvim_tree.setup {
     renderer = {
         highlight_git = true,
-        highlight_opened_files = "name",
-        indent_markers = {
-            enable = false,
-            icons = {
-                corner = "└ ",
-                edge = "│ ",
-                none = "  ",
-            }
-        },
+        -- highlight_opened_files = "name",
 
         icons = {
             webdev_colors = true,
@@ -30,6 +22,7 @@ nvim_tree.setup {
     },
 
     view = {
+        width = 25,
         side = "left",
         number = true,
         relativenumber = true,
