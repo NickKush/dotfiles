@@ -7,6 +7,7 @@ end
 
 local servers = {
     'pyright',
+    'sumneko_lua',
     'tsserver',
     'tailwindcss',
     'vuels',
