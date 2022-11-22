@@ -5,6 +5,17 @@ if not success then
     return
 end
 
+local success, lsp_config = pcall(require, 'lspconfig')
+if not success then
+    return
+end
+
+local success, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not success then
+  return
+end
+
+
 local servers = {
     'pyright',
     'sumneko_lua',
@@ -20,39 +31,19 @@ lsp_installer.setup {
 }
 
 
--- Setup LSP config
-
-local success, lsp_config = pcall(require, 'lspconfig')
-if not success then
-    return
-end
-
 -- Capabilities
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-local success, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not success then
-  return
-end
-
-
-local capabilities = cmp_nvim_lsp.default_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
--- capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
--- capabilities.textDocument.foldingRange = {
---   dynamicRegistration = true,
---   lineFoldingOnly = true,
--- }
-
+local mcc = vim.lsp.protocol.make_client_capabilities()
+local capabilities = cmp_nvim_lsp.default_capabilities(mcc)
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Mapping
 local keymap = vim.keymap.set
-local opts = { noremap = true, silent = true }
+local keymap_opts = { noremap = true, silent = true }
 
-keymap('n', '<space>e', vim.diagnostic.open_float, opts)
-keymap('n', '[d', vim.diagnostic.goto_prev, opts)
-keymap('n', ']d', vim.diagnostic.goto_next, opts)
-keymap('n', '<space>q', vim.diagnostic.setloclist, opts)
+keymap('n', '<space>e', vim.diagnostic.open_float, keymap_opts)
+keymap('n', '[d', vim.diagnostic.goto_prev, keymap_opts)
+keymap('n', ']d', vim.diagnostic.goto_next, keymap_opts)
+keymap('n', '<space>q', vim.diagnostic.setloclist, keymap_opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -143,6 +134,17 @@ for _, server in pairs(servers) do
         }
         opts = vim.tbl_deep_extend("force", server_opts, opts)
     end
-   
+
+    if server == 'sumneko_lua' then
+        local server_opts = {
+            settings = {
+                Lua = { diagnostics = { globals = { 'vim' }, }, },
+                telemetry = { enable = false, },
+            }
+        }
+
+        opts = vim.tbl_deep_extend("force", server_opts, opts)
+    end
+
     lsp_config[server].setup(opts)
 end
