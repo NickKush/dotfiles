@@ -12,7 +12,6 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # # Install neovim
-TEMP_FOLDER="/tmp/neovim_download"
 
 DOWNLOAD_URL=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest \
     | grep "browser_download_url" \
@@ -20,17 +19,10 @@ DOWNLOAD_URL=$(curl -s https://api.github.com/repos/neovim/neovim/releases/lates
     | cut -d '"' -f 4
 )
 
-mkdir -p ${TEMP_FOLDER}
+curl -LO "$DOWNLOAD_URL" && \
+dpkg --install --force-overwrite nvim-linux64.deb
+rm -f nvim-linux64.deb
 
-curl -L --output ${TEMP_FOLDER}/nvim-linux64.deb "$DOWNLOAD_URL" && \
-dpkg --install --force-overwrite ${TEMP_FOLDER}/nvim-linux64.deb    
-
-# curl -sLo --create-dirs ${TEMP_FOLDER}/nvim-linux64.deb "$DOWNLOAD_URL" && \
-# dpkg --install --force-overwrite ${TEMP_FOLDER}/nvim-linux64.deb    
-
-rm -rf ${TEMP_FOLDER}
-
-# Link neovim in vim shortcut
 ln -sf $(which nvim) /usr/local/bin/vim
 
 
@@ -44,3 +36,4 @@ rm -f ripgrep_13.0.0_amd64.deb
 curl -sLO "https://github.com/sharkdp/fd/releases/download/v8.4.0/fd-musl_8.4.0_amd64.deb"
 dpkg --install --force-overwrite fd-musl_8.4.0_amd64.deb
 rm -f fd-musl_8.4.0_amd64.deb
+
