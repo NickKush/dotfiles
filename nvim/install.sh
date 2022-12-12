@@ -20,9 +20,13 @@ DOWNLOAD_URL=$(curl -s https://api.github.com/repos/neovim/neovim/releases/lates
     | cut -d '"' -f 4
 )
 
-mkdir -p ${TEMP_FOLDER} && \
-    curl -sLo --create-dirs ${TEMP_FOLDER}/nvim-linux64.deb "$DOWNLOAD_URL" && \
-    dpkg --install --force-overwrite ${TEMP_FOLDER}/nvim-linux64.deb    
+mkdir -p ${TEMP_FOLDER}
+
+curl -L --output ${TEMP_FOLDER}/nvim-linux64.deb "$DOWNLOAD_URL" && \
+dpkg --install --force-overwrite ${TEMP_FOLDER}/nvim-linux64.deb    
+
+# curl -sLo --create-dirs ${TEMP_FOLDER}/nvim-linux64.deb "$DOWNLOAD_URL" && \
+# dpkg --install --force-overwrite ${TEMP_FOLDER}/nvim-linux64.deb    
 
 rm -rf ${TEMP_FOLDER}
 
