@@ -1,6 +1,8 @@
 
+local create_autocmd = vim.api.nvim_create_autocmd
+
 -- Highlight visualization on yank
-vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+create_autocmd({ "TextYankPost" }, {
     callback = function()
         vim.highlight.on_yank({
             higroup = "Visual",
@@ -10,10 +12,16 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 
 -- Change mode to "insert" when we enter in terminal
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
+create_autocmd({ "BufEnter" }, {
     pattern = { "term://*" },
-    callback = function() 
+    callback = function()
         vim.cmd("startinsert!")
-    end, 
+    end,
 })
 
+
+-- Remove all trailing spaces
+create_autocmd({ "BufWritePre" }, {
+    pattern = "*",
+    command = "%s/\\s\\+$//e",
+})

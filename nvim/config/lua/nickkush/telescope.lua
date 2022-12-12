@@ -23,8 +23,8 @@ keymap('n', '<F12>',     builtin.help_tags, {})
 keymap("n", "<leader>f", builtin.live_grep, {})
 keymap("n", "<leader>b", builtin.buffers, {})
 
-keymap("n", "<leader>]", function() 
-    builtin.find_files({ hidden = true, no_ignore = true }) 
+keymap("n", "<leader>]", function()
+    builtin.find_files({ hidden = true, no_ignore = true })
 end, {})
 
 
@@ -32,9 +32,9 @@ end, {})
 telescope.setup {
     defaults = {
         file_ignore_patterns = ignore_files,
-        
+
         layout_config = {
-            horizontal = { 
+            horizontal = {
                 prompt_position = "bottom"
             },
         },
@@ -58,7 +58,7 @@ telescope.setup {
 
                 ["<C-u>"] = actions.results_scrolling_up,
                 ["<C-d>"] = actions.results_scrolling_down,
-                
+
                 ["<PageUp"] = actions.preview_scrolling_up,
                 ["<PageDown>"] = actions.preview_scrolling_down,
             },
@@ -68,14 +68,14 @@ telescope.setup {
 
                 ["<j>"] = actions.move_selection_next,
                 ["<k>"] = actions.move_selection_previous,
-                
+
                 ["<gg>"] = actions.move_to_top,
                 ["<M>"] = actions.move_to_middle,
                 ["<G>"] = actions.move_to_bottom,
 
                 ["<C-u>"] = actions.preview_scrolling_up,
                 ["<C-d>"] = actions.preview_scrolling_down,
-                
+
                 ["<PageUp"] = actions.results_scrolling_up,
                 ["<PageDown>"] = actions.results_scrolling_down,
             }
