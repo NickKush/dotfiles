@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Make sure we start this script with sudo/root 
+# Make sure we start this script with sudo/root
 if [[ $EUID -ne 0 ]]; then
    echo "this script must be run as root"
    exit 1
@@ -17,11 +17,4 @@ for i in lazygit nvim; do
     cd $i && bash install.sh
     cd -
 done
-
-echo "Setup configuration"
-for i in lazygit nvim tmux; do
-    cd $i && bash setup.sh
-    cd -
-done
-
 
