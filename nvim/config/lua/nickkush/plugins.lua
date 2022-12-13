@@ -18,14 +18,14 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function()
     use("wbthomason/packer.nvim")
-    
+
     -- Color scheme
     use("gruvbox-community/gruvbox")
 
     -- QoL
     use("tpope/vim-commentary")   -- Comments
     use("tpope/vim-surround")     -- brackets, quotes and etc
-    
+
     -- Gui echancements
     -- use("machakann/vim-highlightedyank")
     use("nvim-lualine/lualine.nvim")
@@ -33,13 +33,16 @@ return require('packer').startup(function()
 
     -- LSP
     use("williamboman/nvim-lsp-installer") -- lsp server installer
-    use("neovim/nvim-lspconfig")           -- main lsp plugin for EVERYTHING 
+    use("neovim/nvim-lspconfig")           -- main lsp plugin for EVERYTHING
     use("jose-elias-alvarez/null-ls.nvim") -- language server
     use("ray-x/lsp_signature.nvim")        -- Function signatures
 
-    -- Treesitter 
-    use("nvim-treesitter/nvim-treesitter")
-    
+    -- Treesitter
+    use({
+        "nvim-treesitter/nvim-treesitter",
+        run = ':TSUpdate'
+    })
+
     -- Autocomplete
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-buffer")
@@ -51,20 +54,20 @@ return require('packer').startup(function()
     use("L3MON4D3/LuaSnip")
     use("saadparwaiz1/cmp_luasnip")
 
-    -- Telescope 
+    -- Telescope
     use({
         "nvim-telescope/telescope.nvim",
-        requires = { 
-            { "nvim-lua/plenary.nvim" } 
+        requires = {
+            { "nvim-lua/plenary.nvim" }
         },
     })
 
     -- File tree
     use("kyazdani42/nvim-tree.lua")
-  
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
-    if packer_bootstrap then 
+    if packer_bootstrap then
         require("packer").sync()
     end
 end)

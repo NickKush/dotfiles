@@ -1,8 +1,9 @@
 
 require('nickkush.opts')
 require('nickkush.keymaps')
-require('nickkush.colors')
 require('nickkush.plugins')
+
+require('nickkush.colors')
 require('nickkush.autocommands')
 
 -- Lsp
