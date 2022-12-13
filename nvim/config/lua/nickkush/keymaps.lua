@@ -5,7 +5,7 @@ local opts = { noremap = true, silent = true }
 
 -- Map space as a leader key
 keymap('', '<space>', '<nop>', opts)
-vim.g.mapleader = " " 
+vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 
@@ -46,7 +46,3 @@ keymap('t', '<a-j>', '<c-\\><c-n><c-w>j', opts)
 keymap('t', '<a-h>', '<c-\\><c-n><c-w>h', opts)
 keymap('t', '<a-k>', '<c-\\><c-n><c-w>k', opts)
 keymap('t', '<a-l>', '<c-\\><c-n><c-w>l', opts)
-
-
--- File Tree
-keymap('n', '<F2>', "<cmd>lua require('nvim-tree').toggle()<cr>", opts)
