@@ -42,6 +42,7 @@ return require('packer').startup(function()
         "nvim-treesitter/nvim-treesitter",
         run = ':TSUpdate'
     })
+    use('nvim-treesitter/nvim-treesitter-context')  -- context of currently visible content
 
     -- Autocomplete
     use("hrsh7th/cmp-nvim-lsp")
