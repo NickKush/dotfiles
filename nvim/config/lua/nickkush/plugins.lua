@@ -58,9 +58,13 @@ return require('packer').startup(function()
     -- Telescope
     use({
         'nvim-telescope/telescope.nvim',
-        requires = {
-            { 'nvim-lua/plenary.nvim' }
-        },
+        requires = { 'nvim-lua/plenary.nvim' },
+    })
+
+    -- Scala
+    use({
+        'scalameta/nvim-metals',
+        requires = {{ "nvim-lua/plenary.nvim" }}
     })
 
     -- File tree

@@ -7,7 +7,10 @@ require('nickkush.colors')
 require('nickkush.autocommands')
 
 -- Lsp
-require('nickkush.lsp')
+require('nickkush.lsp.lsp-signature')
+require('nickkush.lsp.lspconfig')
+-- require("nickkush.lsp.null-ls")
+require('nickkush.lsp.metals')
 
 -- Plugins
 require('nickkush.lualine')
