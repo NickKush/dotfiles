@@ -10,7 +10,6 @@ require('nickkush.autocommands')
 require('nickkush.lsp.lsp-signature')
 require('nickkush.lsp.lspconfig')
 -- require("nickkush.lsp.null-ls")
-require('nickkush.lsp.metals')
 
 -- Plugins
 require('nickkush.lualine')
@@ -22,3 +21,4 @@ require('nickkush.treesitter')
 
 
 
+require('nickkush.lsp.metals')

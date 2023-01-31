@@ -27,7 +27,7 @@ cmp.setup({
       ["<c-e>"] = cmp.mapping.abort(),
       ["<cr>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
-    
+
     sources = {
         { name = "nvim_lsp", group_index = 1 },
         { name = "luasnip", group_index = 1 },

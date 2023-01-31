@@ -9,7 +9,8 @@ end
 local metals_config = metals.bare_config()
 
 metals_config.settings = {
-    showImplicitArguments = true
+    showImplicitArguments = true,
+    excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
 }
 
 metals_config.init_options.statusBarProvider = "on"
