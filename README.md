@@ -1,14 +1,19 @@
 # dotfiles
 
-just a dot files
+my dot files
 
 
 ## TODO:
 
-- Bootstrap
-    - [ ] Install chrome
-    - [ ] Install fonts
+- install
+    - chrome
+    - fonts
+    - nvm
+    - virtualenv
+    - alacritty
 
-- Profile
-    - [ ] remap capslock and esc
-    - [ ] change repeat keys speed
+- profile
+    - remap capslock and esc
+    - change repeat keys speed
+
+
