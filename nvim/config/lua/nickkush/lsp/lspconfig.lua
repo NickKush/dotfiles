@@ -16,16 +16,14 @@ if not success then
 end
 
 
-local servers = {
-    'lua_ls',
-    'pyright',
-    'tsserver',
-    'tailwindcss',
-    'vuels',
-}
-
 lsp_installer.setup {
-    ensure_installed = servers,
+    ensure_installed = {
+        'lua_ls',
+        'pyright',
+        'tsserver',
+        'tailwindcss',
+        'vuels',
+    },
 
     automatic_installation = false
 }
@@ -34,7 +32,6 @@ lsp_installer.setup {
 -- Capabilities
 local mcc = vim.lsp.protocol.make_client_capabilities()
 local capabilities = cmp_nvim_lsp.default_capabilities(mcc)
--- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Mapping
 local keymap = vim.keymap.set
@@ -94,57 +91,115 @@ local function get_python_path(workspace)
 end
 
 
-local lsp_flags = {
-    debounce_txt_changes = 150,
+-- easy to config servers
+local servers = {
+    'tsserver',
+    'tailwindcss'
 }
 
-local opts = {}
 
 for _, server in pairs(servers) do
-    opts = {
+    lsp_config[server].setup({
         on_attach = on_attach,
-        flags = lsp_flags,
-        capabilities = capabilities,
-        on_init = function(client)
-            if server == "pyright" then
-                client.config.settings.python.pythonPath = get_python_path(client.config.root_dir)
-            end
-        end,
-    }
-
-    if server == "vuels" then
-        local server_opts = {
-            init_options = {
-                config = {
-                    vetur = {
-                        completion = {
-                            autoImport = true,
-                            tagCasing = "inital",
-                            useScaffoldSnippets = true
-                        },
-                        useWorkspaceDependencies = true,
-                        validation = {
-                            script = true,
-                            style = true,
-                            template = true,
-                        },
-                    }
-                }
-            }
-        }
-        opts = vim.tbl_deep_extend("force", server_opts, opts)
-    end
-
-    if server == 'lua_ls' then
-        local server_opts = {
-            settings = {
-                Lua = { diagnostics = { globals = { 'vim' }, }, },
-                telemetry = { enable = false, },
-            }
-        }
-
-        opts = vim.tbl_deep_extend("force", server_opts, opts)
-    end
-
-    lsp_config[server].setup(opts)
+        capabilities = capabilities
+    })
 end
+
+
+-- Python
+lsp_config.pyright.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+
+    on_init = function(client)
+        if server == "pyright" then
+            client.config.settings.python.pythonPath = get_python_path(client.config.root_dir)
+        end
+    end,
+})
+
+-- Vue
+lsp_config.vuels.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+
+    init_options = {
+        config = {
+            vetur = {
+                completion = {
+                    autoImport = true,
+                    tagCasing = "inital",
+                    useScaffoldSnippets = true
+                },
+                useWorkspaceDependencies = true,
+                validation = {
+                    script = true,
+                    style = true,
+                    template = true,
+                },
+            }
+        }
+    }
+})
+
+-- Lua
+lsp_config.lua_ls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+
+    settings = {
+        Lua = { diagnostics = { globals = { 'vim' }, }, },
+        telemetry = { enable = false, },
+    }
+})
+
+
+-- local opts = {}
+
+-- for _, server in pairs(servers) do
+--     opts = {
+--         on_attach = on_attach,
+--         capabilities = capabilities,
+--         on_init = function(client)
+--             if server == "pyright" then
+--                 client.config.settings.python.pythonPath = get_python_path(client.config.root_dir)
+--             end
+--         end,
+--     }
+
+--     if server == "vuels" then
+--         local server_opts = {
+--             init_options = {
+--                 config = {
+--                     vetur = {
+--                         completion = {
+--                             autoImport = true,
+--                             tagCasing = "inital",
+--                             useScaffoldSnippets = true
+--                         },
+--                         useWorkspaceDependencies = true,
+--                         validation = {
+--                             script = true,
+--                             style = true,
+--                             template = true,
+--                         },
+--                     }
+--                 }
+--             }
+--         }
+--         opts = vim.tbl_deep_extend("force", server_opts, opts)
+--     end
+
+--     if server == 'lua_ls' then
+--         local server_opts = {
+--             settings = {
+--                 Lua = { diagnostics = { globals = { 'vim' }, }, },
+--                 telemetry = { enable = false, },
+--             }
+--         }
+
+--         opts = vim.tbl_deep_extend("force", server_opts, opts)
+--     end
+
+--     lsp_config[server].setup(opts)
+-- end
