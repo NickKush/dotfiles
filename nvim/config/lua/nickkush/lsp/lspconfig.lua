@@ -17,8 +17,8 @@ end
 
 
 local servers = {
+    'lua_ls',
     'pyright',
-    'sumneko_lua',
     'tsserver',
     'tailwindcss',
     'vuels',
@@ -135,7 +135,7 @@ for _, server in pairs(servers) do
         opts = vim.tbl_deep_extend("force", server_opts, opts)
     end
 
-    if server == 'sumneko_lua' then
+    if server == 'lua_ls' then
         local server_opts = {
             settings = {
                 Lua = { diagnostics = { globals = { 'vim' }, }, },
