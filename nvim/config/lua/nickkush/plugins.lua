@@ -20,7 +20,8 @@ return require('packer').startup(function()
     use('wbthomason/packer.nvim')
 
     -- Color scheme
-    use('gruvbox-community/gruvbox')
+    -- use('gruvbox-community/gruvbox')
+    use({ "catppuccin/nvim", as = "catppuccin" })
 
     -- QoL
     use('tpope/vim-commentary')   -- Comments

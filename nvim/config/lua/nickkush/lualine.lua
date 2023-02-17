@@ -8,7 +8,8 @@ lualine.setup {
     options = {
         globalstatus = true,
         icons_enabled = false,
-        theme = 'gruvbox',
+        -- theme = 'gruvbox',
+        theme = 'catppuccin-mocha',
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         always_divide_middle = true
