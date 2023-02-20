@@ -9,7 +9,7 @@ require('nickkush.autocommands')
 -- Lsp
 require('nickkush.lsp.lsp-signature')
 require('nickkush.lsp.lspconfig')
--- require("nickkush.lsp.null-ls")
+require("nickkush.lsp.null-ls")
 
 -- Plugins
 require('nickkush.lualine')
