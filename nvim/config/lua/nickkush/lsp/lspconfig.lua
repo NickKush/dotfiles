@@ -18,7 +18,7 @@ end
 
 lsp_installer.setup {
     ensure_installed = {
-        'lua_ls',
+        'sumneko_lua',
         'pyright',
         'tsserver',
         'tailwindcss',

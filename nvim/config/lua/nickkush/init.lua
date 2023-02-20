@@ -14,6 +14,7 @@ require('nickkush.lsp.lspconfig')
 -- Plugins
 require('nickkush.lualine')
 require('nickkush.cmp')
+require('nickkush.git')
 require('nickkush.telescope')
 require('nickkush.nvim-tree')
 require('nickkush.treesitter')

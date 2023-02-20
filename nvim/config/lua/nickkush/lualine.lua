@@ -17,10 +17,10 @@ lualine.setup {
 
     sections = {
         lualine_a = {'mode'},
-        lualine_b = {'branch', 'diagnostics'},
-        lualine_c = { { 'filename', path=1 } },
-        lualine_x = {'diff', 'encoding',},
-        lualine_y = {'filetype', 'g:metals_status'},
+        lualine_b = { { 'filename', path=0 } },
+        lualine_c = {'diagnostics'},
+        lualine_x = {'encoding', 'branch'},
+        lualine_y = {'filetype' }, --, 'g:metals_status'},
         lualine_z = {'progress', 'location'}
     }
 }
