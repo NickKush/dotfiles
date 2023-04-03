@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Download the latest version of lazygit
+# Download and install the latest version of lazygit
 # https://github.com/jesseduffield/lazygit
-# 
+#
 # We can't download it directly from PPA, because it's been deprecated
 
 
-# Make sure we start this script with sudo/root 
+# Make sure we start this script with sudo/root
 if [[ $EUID -ne 0 ]]; then
    echo "lazygit.sh must be run as root"
    exit 1
