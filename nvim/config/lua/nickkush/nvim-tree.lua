@@ -5,7 +5,7 @@ end
 
 local keymap = vim.keymap.set
 
-keymap('n', '<F2>', nvim_tree.toggle, {})
+keymap('n', '<F2>', require('nvim-tree.api').tree.toggle)
 
 -- Set folder color
 vim.cmd("highlight NvimTreeFolderName guifg=lightgray")

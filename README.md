@@ -16,4 +16,5 @@ my dot files
     - remap capslock and esc
     - change repeat keys speed
 
-
+- nvim
+    - commit lock plugins
