@@ -9,7 +9,7 @@
 # Git config
 echo "Setup Git config"
 
-ln -sf "$PWD/gitconfig" "$HOME/.gitconfig"
+ln -sf $PWD/gitconfig $HOME/.gitconfig
 
 
 # Neovim
@@ -17,13 +17,13 @@ echo "Setup Neovim"
 
 rm -rf ~/.config/nvim/*
 mkdir -p ~/.config/nvim
-ln -sf "$PWD/nvim/*" "$HOME/.config/nvim/"
+ln -sf $PWD/nvim/* $HOME/.config/nvim/
 
 
 # Tmux
 echo "Setup Tmux"
 
-ln -sf "$PWD/tmux/tmux.conf" "$HOME/.tmux.conf"
+ln -sf $PWD/tmux/tmux.conf $HOME/.tmux.conf
 
 
 # Awesome
@@ -31,5 +31,5 @@ echo "Setup Awesome"
 
 rm -rf ~/.config/awesome/*
 mkdir -p ~/.config/awesome
-ln -sf "$PWD/awesome/*" "$HOME/.config/awesome/"
+ln -sf $PWD/awesome/* $HOME/.config/awesome/
 
