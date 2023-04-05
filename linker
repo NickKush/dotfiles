@@ -24,3 +24,12 @@ ln -sf "$PWD/nvim/*" "$HOME/.config/nvim/"
 echo "Setup Tmux"
 
 ln -sf "$PWD/tmux/tmux.conf" "$HOME/.tmux.conf"
+
+
+# Awesome
+echo "Setup Awesome"
+
+rm -rf ~/.config/awesome/*
+mkdir -p ~/.config/awesome
+ln -sf "$PWD/awesome/*" "$HOME/.config/awesome/"
+
