@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# for i in lazygit nvim tmux; do
+#     echo "setup config for $i"
+#     cd $i && bash setup.sh
+#     cd -
+# done
+
+# Git config
+echo "Setup Git config"
+
+ln -sf "$PWD/gitconfig" "$HOME/.gitconfig"
+
+
+# Neovim
+echo "Setup Neovim"
+
+rm -rf ~/.config/nvim/*
+mkdir -p ~/.config/nvim
+ln -sf "$PWD/nvim/*" "$HOME/.config/nvim/"
+
+
+# Tmux
+echo "Setup Tmux"
+
+ln -sf "$PWD/tmux/tmux.conf" "$HOME/.tmux.conf"

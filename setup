@@ -1,9 +1,0 @@
-#!/bin/bash
-
-for i in lazygit nvim tmux; do
-    echo "setup config for $i"
-    cd $i && bash setup.sh
-    cd -
-done
-
-ln -sf "$PWD/gitconfig" "$HOME/.gitconfig"
