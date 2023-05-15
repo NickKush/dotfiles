@@ -25,6 +25,13 @@ echo "Setup Tmux"
 
 ln -sf $PWD/tmux/tmux.conf $HOME/.tmux.conf
 
+# Alacritty
+echo "Setup Alacritty"
+
+rm -rf ~/.config/alacritty/*
+mkdir -p ~/.config/alacritty
+ln -sf $PWD/alacritty/* $HOME/.config/alacritty/
+
 
 # Awesome
 echo "Setup Awesome"

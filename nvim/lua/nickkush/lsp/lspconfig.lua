@@ -22,6 +22,7 @@ lsp_installer.setup {
         'pyright',
         'tsserver',
         'tailwindcss',
+        'rust-analyzer',
         'vuels',
     },
 
@@ -94,7 +95,8 @@ end
 -- easy to config servers
 local servers = {
     'tsserver',
-    'tailwindcss'
+    'tailwindcss',
+    'rust-analyzer'
 }
 
 
