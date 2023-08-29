@@ -14,20 +14,20 @@ fi
 
 # Install neovim
 
-DOWNLOAD_URL=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest \
+
+# Version 0.9.1
+DOWNLOAD_URL=$(curl -s https://api.github.com/repos/neovim/neovim/releases/105225942 \
     | grep "browser_download_url" \
-    | grep "nvim-linux64.deb\"$" \
+    | grep "nvim.appimage\"$" \
     | cut -d '"' -f 4
 )
 
-curl -LO "$DOWNLOAD_URL" && \
-dpkg --install --force-overwrite nvim-linux64.deb
-rm -f nvim-linux64.deb
+curl -sLO "$DOWNLOAD_URL" && \
+cp -f nvim.appimage /usr/local/bin/vim && \
+chmod +x /usr/local/bin/vim && \
+rm -f nvim.appimage
 
-ln -sf $(which nvim) /usr/local/bin/vim
-
-
-# Install fg for telescope
+# # Install fg for telescope
 curl -sLO "https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb"
 dpkg --install --force-overwrite ripgrep_13.0.0_amd64.deb
 rm -f ripgrep_13.0.0_amd64.deb
