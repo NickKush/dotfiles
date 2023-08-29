@@ -96,7 +96,6 @@ end
 local servers = {
     'tsserver',
     'tailwindcss',
-    'rust-analyzer'
 }
 
 
@@ -155,53 +154,8 @@ lsp_config.lua_ls.setup({
     }
 })
 
+lsp_config.rust_analyzer.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
 
--- local opts = {}
-
--- for _, server in pairs(servers) do
---     opts = {
---         on_attach = on_attach,
---         capabilities = capabilities,
---         on_init = function(client)
---             if server == "pyright" then
---                 client.config.settings.python.pythonPath = get_python_path(client.config.root_dir)
---             end
---         end,
---     }
-
---     if server == "vuels" then
---         local server_opts = {
---             init_options = {
---                 config = {
---                     vetur = {
---                         completion = {
---                             autoImport = true,
---                             tagCasing = "inital",
---                             useScaffoldSnippets = true
---                         },
---                         useWorkspaceDependencies = true,
---                         validation = {
---                             script = true,
---                             style = true,
---                             template = true,
---                         },
---                     }
---                 }
---             }
---         }
---         opts = vim.tbl_deep_extend("force", server_opts, opts)
---     end
-
---     if server == 'lua_ls' then
---         local server_opts = {
---             settings = {
---                 Lua = { diagnostics = { globals = { 'vim' }, }, },
---                 telemetry = { enable = false, },
---             }
---         }
-
---         opts = vim.tbl_deep_extend("force", server_opts, opts)
---     end
-
---     lsp_config[server].setup(opts)
--- end
