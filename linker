@@ -9,7 +9,7 @@
 # Git config
 echo "Setup Git config"
 
-ln -sf $PWD/gitconfig $HOME/.gitconfig
+ln -sf $PWD/personal/gitconfig $HOME/.gitconfig
 
 
 # Neovim
