@@ -20,7 +20,7 @@ local ignore_files = {
 local keymap = vim.keymap.set
 
 keymap('n', '<leader>n', builtin.find_files, {})
-keymap('n', '<F12>',     builtin.help_tags, {})
+keymap('n', '<f12>',     builtin.help_tags, {})
 keymap("n", "<leader>f", builtin.live_grep, {})
 keymap("n", "<leader>b", builtin.buffers, {})
 
