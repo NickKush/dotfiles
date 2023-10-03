@@ -120,14 +120,23 @@ return {
 
       -- https://github.com/williamboman/mason.nvim/issues/1309#issuecomment-1555018732
       local mr = require("mason-registry")
-      mr.refresh(function()
+
+      local function install()
         for _, pkg_name in ipairs(opts.ensure_installed) do
           local pkg = mr.get_package(pkg_name)
           if not pkg:is_installed() then
             pkg:install()
           end
         end
-      end)
+      end
+
+      if mr.refresh then
+        print("qwe")
+        mr.refresh(install)
+      else
+        print("ASD")
+        install()
+      end
     end,
   },
 

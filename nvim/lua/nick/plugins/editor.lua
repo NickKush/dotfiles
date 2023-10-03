@@ -13,7 +13,7 @@ return {
 
     opts = {
       renderer = {
-        highlight_git = true,
+        highlight_git = false,
         -- highlight_opened_files = "name",
 
         icons = {
