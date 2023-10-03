@@ -19,25 +19,46 @@ return require("packer").startup(function()
     use("wbthomason/packer.nvim")
 
     -- Color scheme
+    -- DONE
     use({
         "catppuccin/nvim",
         as = "catppuccin",
         tag = "1.4.0"
     })
 
-    -- Comments
-    use({"tpope/vim-commentary", commit = "e87cd90"})
-    use({"tpope/vim-surround", commit = "3d188ed"})     -- brackets, quotes and etc
 
     -- Gui echancements
     use({"nvim-lualine/lualine.nvim", commit = "45e27ca"})
 
+    -- File explorer
+    use({
+        "kyazdani42/nvim-tree.lua",
+        commit = "5897b36"
+    }) --
+    use({
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.2",
+        requires = { "nvim-lua/plenary.nvim" },
+    })
 
-    -- LSP
-    use("williamboman/nvim-lsp-installer") -- lsp server installer
-    use("neovim/nvim-lspconfig")           -- main lsp plugin for EVERYTHING
-    use("jose-elias-alvarez/null-ls.nvim") -- language server
-    use("ray-x/lsp_signature.nvim")        -- Function signatures
+    -- Comments
+    use({"tpope/vim-commentary", commit = "e87cd90"})
+    use({"tpope/vim-surround", commit = "3d188ed"})     -- brackets, quotes and etc
+
+    -- Autocomplete
+    use("hrsh7th/cmp-nvim-lsp")
+    use("hrsh7th/cmp-buffer")
+    use("hrsh7th/cmp-path")
+    use("hrsh7th/cmp-cmdline")
+    use("hrsh7th/nvim-cmp")
+    use("saadparwaiz1/cmp_luasnip")
+
+    -- Snippets
+    use("L3MON4D3/LuaSnip")
+
+    -- Fuzzy finder
+    -- Git blame
+    use({"f-person/git-blame.nvim", commit = "41e22dc"})
 
     -- Treesitter
     use({
@@ -46,32 +67,14 @@ return require("packer").startup(function()
     })
     use("nvim-treesitter/nvim-treesitter-context")  -- context of currently visible content
 
-    -- Autocomplete
-    use("hrsh7th/cmp-nvim-lsp")
-    use("hrsh7th/cmp-buffer")
-    use("hrsh7th/cmp-path")
-    use("hrsh7th/cmp-cmdline")
-    use("hrsh7th/nvim-cmp")
+    use("williamboman/nvim-lsp-installer") -- lsp server installer
+    use("neovim/nvim-lspconfig")           -- main lsp plugin for EVERYTHING
+    use("ray-x/lsp_signature.nvim")        -- Function signatures
+    -- LSP
+    use("jose-elias-alvarez/null-ls.nvim") -- language server
+    -- END DONE
 
-    -- Snippets
-    use("L3MON4D3/LuaSnip")
-    use("saadparwaiz1/cmp_luasnip")
 
-    -- Fuzzy finder
-    use({
-        "nvim-telescope/telescope.nvim",
-        tag = "0.1.2",
-        requires = { "nvim-lua/plenary.nvim" },
-    })
-
-    -- File explorer
-    use({
-        "kyazdani42/nvim-tree.lua",
-        commit = "5897b36"
-    }) --
-
-    -- Git blame
-    use({"f-person/git-blame.nvim", commit = "41e22dc"})
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
