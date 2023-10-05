@@ -19,7 +19,27 @@ return {
     -- UI
     {
         "rcarriga/nvim-dap-ui",
-        opts = {},
+        opts = {
+           controls = {
+              icons = {
+                disconnect = "",
+                pause = "⏸",
+                play = "▶",
+                run_last = "↻",
+                step_back = "↶",
+                step_into = "⇣",
+                step_out = "⇡",
+                step_over = "↷",
+                terminate = "⏹"
+            }
+          },
+
+          icons = {
+            collapsed = "▸",
+            current_frame = "▸",
+            expanded = "▾"
+          },
+        },
         config = function(_, opts)
             local dap = require("dap")
             local dapui = require("dapui")

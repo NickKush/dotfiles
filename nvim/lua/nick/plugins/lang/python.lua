@@ -19,19 +19,18 @@
 --   return exepath('python3') or exepath('python') or 'python3' or 'python'
 -- end
 
--- TODO: use linux-cultist/venv-selector.nvim?
 return {
   {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        pyright = {
+        pyright = {}
           -- on_init = function(client)
           --   if server == "pyright" then
           --       client.config.settings.python.pythonPath = get_python_path(client.config.root_dir)
           --   end
           -- end,
-        },
+        -- },
       },
     },
   },
@@ -55,31 +54,31 @@ return {
             require("dap-python").setup(path .. "/venv/bin/python")
           end,
       },
-        {
-            -- "jay-babu/mason-nvim-dap.nvim",
-            "williamboman/mason.nvim",
-            opts = function(_, opts)
-                vim.list_extend(opts.ensure_installed, { "debugpy" })
-            end,
-        }
+      {
+        -- "jay-babu/mason-nvim-dap.nvim",
+        "williamboman/mason.nvim",
+        opts = function(_, opts)
+            vim.list_extend(opts.ensure_installed, { "debugpy" })
+        end,
+      }
     }
   },
 
   {
     "linux-cultist/venv-selector.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "nvim-telescope/telescope.nvim",
+      "mfussenegger/nvim-dap-python"
+    },
     cmd = "VenvSelect",
-    opts = function(_, opts)
-      opts.dap_enabled = true
-      return vim.tbl_deep_extend("force", opts, {
-        name = {
-          "venv",
-          ".venv",
-          "env",
-          ".env",
-        },
-      })
-    end,
-    keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
+    opts = {
+      name = { "venv", ".venv", "env", ".env", },
+      parents = 1  -- only search current opened directory for venv
+    },
+    keys = {
+        { "<leader>vs", "<cmd>:VenvSelect<cr>", desc = "VirtualEnv" },
+        { "<leader>vc", "<cmd>:VenvSelectCached<cr>", desc = "VirtualEnv Cached" }
+    },
   },
-
 }

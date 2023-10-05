@@ -1,7 +1,7 @@
 return {
   {
     "kyazdani42/nvim-tree.lua",
-    lazy = false,
+    lazy = true,
 
     keys = {
       {
@@ -14,19 +14,33 @@ return {
     opts = {
       renderer = {
         highlight_git = false,
-        -- highlight_opened_files = "name",
 
         icons = {
-          webdev_colors = true,
           show = {
-            git = false
+            folder_arrow = false,
+            git = false,
+          },
+          glyphs = {
+            default = " ",
+            folder = {
+              default = "▸",
+              open = "▾",
+              empty = "▹",
+              empty_open = "▿",
+            }
           },
         }
       },
 
       view = {
-        width = 25,
-        side = "left",
+        float = {
+          enable = true,
+          open_win_config = {
+            row = 0, col = 0, height = 40
+          },
+        },
+        -- width = 30,
+        -- side = "left",
         number = true,
         relativenumber = true,
         signcolumn = "no"

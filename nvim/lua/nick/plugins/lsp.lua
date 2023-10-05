@@ -131,10 +131,8 @@ return {
       end
 
       if mr.refresh then
-        print("qwe")
         mr.refresh(install)
       else
-        print("ASD")
         install()
       end
     end,
