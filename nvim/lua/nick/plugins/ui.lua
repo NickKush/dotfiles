@@ -15,10 +15,11 @@ return {
 
       sections = {
         lualine_a = {'mode'},
-        lualine_b = { { 'filename', path=1 } },
+        -- lualine_b = { { 'filename', path=1 } },
+        lualine_b = { 'filename' },
         lualine_c = {'diagnostics'},
         lualine_x = {'encoding', 'branch'},
-        lualine_y = {'filetype' }, --, 'g:metals_status'},
+        lualine_y = {'filetype' },
         lualine_z = {'progress', 'location'}
       }
     }
