@@ -1,0 +1,14 @@
+let mapleader=" "
+
+set mouse=a
+set incsearch
+
+set commentary
+set highlightedyank
+
+let g:highlightedyank_highlight_duration = "200"
+
+set ideajoin
+set ideaput
+
+set clipboard=unnamedplus
