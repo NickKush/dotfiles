@@ -1,3 +1,4 @@
 -- require('oldpacker')
-require('nick')
+-- require('nick')
+require("config.lazy")
 

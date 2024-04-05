@@ -5,10 +5,11 @@ return {
 
     keys = {
       {
-        "<F2>", function()
+        "<F2>",
+        function()
           require("nvim-tree.api").tree.toggle()
         end,
-      }
+      },
     },
 
     opts = {
@@ -27,31 +28,32 @@ return {
               open = "▾",
               empty = "▹",
               empty_open = "▿",
-            }
+            },
           },
-        }
+        },
       },
 
       view = {
         float = {
           enable = true,
           open_win_config = {
-            row = 0, col = 0, height = 40
+            row = 0,
+            col = 0,
+            height = 40,
           },
         },
         -- width = 30,
         -- side = "left",
         number = true,
         relativenumber = true,
-        signcolumn = "no"
-      }
+        signcolumn = "no",
+      },
     },
 
     config = function(_, opts)
-      require('nvim-tree').setup(opts)
+      require("nvim-tree").setup(opts)
     end,
   },
-
 
   {
     "nvim-telescope/telescope.nvim",
@@ -59,25 +61,28 @@ return {
     cmd = "Telescope",
 
     dependencies = {
-      "nvim-lua/plenary.nvim"
+      "nvim-lua/plenary.nvim",
     },
 
     keys = function()
-      local builtin = require('telescope.builtin')
+      local builtin = require("telescope.builtin")
 
       return {
         { "<leader>n", builtin.find_files },
-        { "<f12>",     builtin.help_tags },
+        { "<f12>", builtin.help_tags },
         { "<leader>f", builtin.live_grep },
         { "<leader>b", builtin.buffers },
-        { "<leader>]", function()
-          builtin.find_files({ hidden = true, no_ignore = true })
-        end }
+        {
+          "<leader>]",
+          function()
+            builtin.find_files({ hidden = true, no_ignore = true })
+          end,
+        },
       }
     end,
 
     opts = function()
-      local actions = require('telescope.actions')
+      local actions = require("telescope.actions")
 
       return {
         defaults = {
@@ -87,12 +92,12 @@ return {
             "venv*/",
             "__pycache__/",
             "htmlcov/",
-            "migrations/"
+            "migrations/",
           },
 
           layout_config = {
             horizontal = {
-              prompt_position = "bottom"
+              prompt_position = "bottom",
             },
           },
 
@@ -134,20 +139,20 @@ return {
 
               ["<PageUp"] = actions.results_scrolling_up,
               ["<PageDown>"] = actions.results_scrolling_down,
-            }
-          }
+            },
+          },
         },
 
         pickers = {
           find_files = {
-            previewer = false
+            previewer = false,
           },
 
           buffers = {
             theme = "dropdown",
             previewer = false,
-          }
-        }
+          },
+        },
       }
     end,
   },
@@ -161,5 +166,5 @@ return {
     opts = {
       enabled = 0,
     },
-  }
+  },
 }
