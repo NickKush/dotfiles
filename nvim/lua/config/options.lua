@@ -8,3 +8,5 @@ opt.scrolloff = 8 -- Lines of context
 opt.tabstop = 4 -- Number of spaces tabs count for
 
 opt.swapfile = false -- Don't save swap file
+
+opt.wrap = true

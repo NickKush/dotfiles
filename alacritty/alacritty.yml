@@ -26,28 +26,28 @@ font:
   # Normal (roman) font face
   normal:
     # family: monospace
-    family: JetBrainsMono
+    family: JetBrains Mono NF
     style: Regular
 
   # Bold font face
   bold:
     # family: monospace
-    family: JetBrainsMono
+    family: JetBrains Mono NF
     style: Bold
 
   # Italic font face
   italic:
     # family: monospace
-    family: JetBrainsMono
+    family: JetBrains Mono NF
     style: Italic
 
   bold_italic:
     # family: monospace
-    family: JetBrainsMono
+    family: JetBrains Mono NF
     style: Bold Italic
 
   # Point size
-  size: 11.0
+  # size: 11.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter

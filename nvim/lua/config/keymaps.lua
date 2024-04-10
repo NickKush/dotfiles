@@ -1,3 +1,7 @@
+-- disable word wrap keymap
+vim.keymap.del("n", "<leader>uw", { desc = "Toggle Word Wrap" })
+
+---------------------------------------
 -- Default Lazyvim configs
 --
 -- -- better up/down
