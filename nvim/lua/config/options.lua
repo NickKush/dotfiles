@@ -5,6 +5,7 @@
 local opt = vim.opt
 
 opt.scrolloff = 8 -- Lines of context
+opt.shiftwidth = 4
 opt.tabstop = 4 -- Number of spaces tabs count for
 
 opt.swapfile = false -- Don't save swap file
