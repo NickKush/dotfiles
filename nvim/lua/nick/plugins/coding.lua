@@ -9,7 +9,7 @@ return {
       config = function()
         require("luasnip.loaders.from_vscode").lazy_load()
       end,
-    }
+    },
   },
 
   -- autocomplete
@@ -30,22 +30,22 @@ return {
 
       return {
         completion = {
-          completeopt = "menu,menuone,noselect"
+          completeopt = "menu,menuone,noselect",
         },
 
         snippet = {
           expand = function(args)
-            require('luasnip').lsp_expand(args.body)
+            require("luasnip").lsp_expand(args.body)
           end,
         },
 
         mapping = cmp.mapping.preset.insert({
-          ["<c-k>"] = cmp.mapping.select_prev_item(),
-          ["<c-j>"] = cmp.mapping.select_next_item(),
-          ["<c-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<c-f>"] = cmp.mapping.scroll_docs(4),
-          ["<c-space>"] = cmp.mapping.complete(),
-          ["<c-e>"] = cmp.mapping.abort(),
+          ["<C-k>"] = cmp.mapping.select_prev_item(),
+          ["<C-j>"] = cmp.mapping.select_next_item(),
+          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-f>"] = cmp.mapping.scroll_docs(4),
+          ["<C-space>"] = cmp.mapping.complete(),
+          ["<C-e>"] = cmp.mapping.abort(),
           ["<cr>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
 
@@ -59,7 +59,7 @@ return {
         window = {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
-        }
+        },
       }
     end,
   },

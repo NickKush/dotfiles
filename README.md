@@ -1,7 +1,9 @@
 # dotfiles
 
-my dot files
+## nvim todo:
 
+- remove double quoute auto placement
+- configurable ignore files. (venv)
 
 ## TODO:
 
