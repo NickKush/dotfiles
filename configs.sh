@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if [[ $EUID -eq 0 ]]; then
+	echo "Linking configs for root user"
+	exit 1
+else
+	echo "Linking configs for normal user"
+fi
+
 # for i in lazygit nvim tmux; do
 #     echo "setup config for $i"
 #     cd $i && bash setup.sh
@@ -9,6 +16,7 @@
 # Git config
 echo "Setup Git config"
 
+# TODO: Check if submodule is present
 ln -sf $PWD/personal/gitconfig $HOME/.gitconfig
 ln -sf $PWD/.ideavimrc  $HOME/.ideavimrc
 

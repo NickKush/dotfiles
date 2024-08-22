@@ -1,0 +1,18 @@
+live_config_reload = true
+
+
+[font]
+normal = { family = "JetBrains Mono NF", style = "Regular" }
+bold = { family = "JetBrains Mono NF", style = "Bold" }
+bold_italic = { family = "JetBrains Mono NF", style = "Bold Italic" }
+italic = { family = "JetBrains Mono NF", style = "Italic" }
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[window]
+padding = { x = 4, y = 1 }
+dimensions = { columns = 80, lines = 24 }
+decorations = "full"
+dynamic_title = true
