@@ -1,4 +1,5 @@
 #!/bin/bash
+set -o xtrace
 
 # Build alacritty
 # https://github.com/alacritty/alacritty/blob/master/INSTAll.md
