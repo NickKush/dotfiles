@@ -9,6 +9,7 @@
 
 - fix
    - bootstrap change installation method
+   - install lastest lts node via nvm
 
 - install
     - browser
