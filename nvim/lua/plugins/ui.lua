@@ -36,8 +36,6 @@ return {
     keys = function()
       return {
         { "<space>t", "<Cmd>BufferLinePick<CR>", desc = "Buffer picker" },
-        { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
-        { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
       }
     end,
     opts = {
