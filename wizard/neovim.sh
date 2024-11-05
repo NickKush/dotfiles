@@ -1,36 +1,94 @@
 #!/bin/bash
-set -o xtrace
+# set -o xtrace
 
 # Download and install the latest version of neovim
 # https://github.com/neovim/neovim
 #
 # We can't download it directly from PPA, because it's not been updated...
 
-# Make sure we start this script with sudo/root
-if [[ $EUID -ne 0 ]]; then
-    echo "neovim install.sh must be run as root"
-    exit 1
-fi
+URL="https://api.github.com/repos/neovim/neovim/releases"
+VERSION="v0.10.2"
 
-# Version 0.9.5
-DOWNLOAD_URL=$(
-    curl -s https://api.github.com/repos/neovim/neovim/releases/tags/v0.10.2 |
-        grep "browser_download_url" |
-        grep "nvim.appimage\"$" |
-        cut -d '"' -f 4
-)
+function echo_tags() {
+    tags_result=$(curl -s "$URL" | grep "tag_name" | cut -d '"' -f 4)
+    readarray -t array <<<"$tags_result"
 
-curl -sLO "$DOWNLOAD_URL" &&
-    cp -f nvim.appimage /usr/local/bin/vim &&
-    chmod +x /usr/local/bin/vim &&
-    rm -f nvim.appimage
+    limit=10
 
-# # Install fg for telescope
-curl -sLO "https://github.com/BurntSushi/ripgrep/releases/download/14.1.0/ripgrep_14.1.0-1_amd64.deb"
-dpkg --install --force-overwrite ripgrep_14.1.0-1_amd64.deb
-rm -f ripgrep_14.1.0-1_amd64.deb
+    for index in "${!array[@]}"; do
+        echo "${array[index]}"
 
-# Install fd for telescope
-# curl -sLO "https://github.com/sharkdp/fd/releases/download/v8.4.0/fd-musl_8.4.0_amd64.deb"
-# dpkg --install --force-overwrite fd-musl_8.4.0_amd64.deb
-# rm -f fd-musl_8.4.0_amd64.deb
+        if (( $index >= $limit - 1 ))
+        then
+            break
+        fi
+    done
+}
+
+function check_sudo() {
+    # Make sure we start this script with sudo/root
+    if [[ $EUID -ne 0 ]]; then
+        echo "You must to be root"
+        exit 1
+    fi
+
+}
+
+function install_neovim() {
+    check_sudo
+
+
+    download_url=$(
+        curl -s "$URL/tags/$VERSION" |
+            grep "browser_download_url" |
+            grep "nvim.appimage\"$" |
+            cut -d '"' -f 4
+    )
+
+    curl -sLO "$download_url" &&
+        cp -f nvim.appimage /usr/local/bin/vim &&
+        chmod +x /usr/local/bin/vim &&
+        rm -f nvim.appimage
+
+    install_deps
+}
+
+function install_deps() {
+    check_sudo
+
+    # Install fg for telescope
+    curl -sLO "https://github.com/BurntSushi/ripgrep/releases/download/14.1.0/ripgrep_14.1.0-1_amd64.deb"
+    dpkg --install --force-overwrite ripgrep_14.1.0-1_amd64.deb
+    rm -f ripgrep_14.1.0-1_amd64.deb
+
+    # Install fd for telescope
+    curl -sLO "https://github.com/sharkdp/fd/releases/download/v8.4.0/fd-musl_8.4.0_amd64.deb"
+    dpkg --install --force-overwrite fd-musl_8.4.0_amd64.deb
+    rm -f fd-musl_8.4.0_amd64.deb
+}
+
+while [[ $# -gt 0 ]]; do
+    key="$1"
+
+    case $key in
+        -h|--help)
+            echo "Usage: neovim.sh [-h] [--list] [--install]"
+            exit 0
+            ;;
+
+        --list)
+            echo_tags
+            exit 0
+            ;;
+
+        --install)
+            install_neovim
+            exit 0
+            ;;
+
+        *) # unknown option
+            shift
+            ;;
+    esac
+done
+
