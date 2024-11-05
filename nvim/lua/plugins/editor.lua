@@ -1,4 +1,5 @@
 return {
+  -- file tree
   {
     "nvim-neo-tree/neo-tree.nvim",
     keys = function()
@@ -29,20 +30,6 @@ return {
     -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
     -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
     -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-    },
-  },
-
-  -- global search and replace
-  {
-    "nvim-pack/nvim-spectre",
-    keys = {
-      {
-        "<leader>sr",
-        function()
-          require("spectre").open_visual({ select_word = true })
-        end,
-        desc = "Replace current word in files (Spectre)",
-      },
     },
   },
 
@@ -98,13 +85,6 @@ return {
         },
       }
     end,
-  },
-
-  {
-    "RRethy/vim-illuminate",
-    opts = {
-      delay = 100,
-    },
   },
 
   {

@@ -1,4 +1,1 @@
--- require('oldpacker')
--- require('nick')
-require("config.lazy")
-
+require("config.init")

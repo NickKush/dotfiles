@@ -14,7 +14,7 @@ fi
 
 # Version 0.9.5
 DOWNLOAD_URL=$(
-    curl -s https://api.github.com/repos/neovim/neovim/releases/tags/v0.9.5 |
+    curl -s https://api.github.com/repos/neovim/neovim/releases/tags/v0.10.2 |
         grep "browser_download_url" |
         grep "nvim.appimage\"$" |
         cut -d '"' -f 4
