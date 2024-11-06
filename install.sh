@@ -1,5 +1,0 @@
-
-
-# Alacrity
-
-cargo install alacrity

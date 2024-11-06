@@ -1,4 +1,5 @@
 #!/bin/bash
+set -o xtrace
 
 # Download and install the latest version of lazygit
 # https://github.com/jesseduffield/lazygit

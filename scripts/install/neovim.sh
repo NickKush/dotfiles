@@ -1,5 +1,5 @@
 #!/bin/bash
-# set -o xtrace
+set -o xtrace
 
 # Download and install the latest version of neovim
 # https://github.com/neovim/neovim
