@@ -6,6 +6,9 @@ set -o xtrace
 #
 # We can't download it directly from PPA, because it's not been updated...
 
+# Import common functions
+source ../functions.sh
+
 URL="https://api.github.com/repos/neovim/neovim/releases"
 VERSION="v0.10.2"
 
@@ -25,18 +28,9 @@ function echo_tags() {
     done
 }
 
-function check_sudo() {
-    # Make sure we start this script with sudo/root
-    if [[ $EUID -ne 0 ]]; then
-        echo "You must to be root"
-        exit 1
-    fi
-
-}
 
 function install_neovim() {
-    check_sudo
-
+    ensure_sudo
 
     download_url=$(
         curl -s "$URL/tags/$VERSION" |
@@ -54,7 +48,7 @@ function install_neovim() {
 }
 
 function install_deps() {
-    check_sudo
+    ensure_sudo
 
     # Install fg for telescope
     curl -sLO "https://github.com/BurntSushi/ripgrep/releases/download/14.1.0/ripgrep_14.1.0-1_amd64.deb"
