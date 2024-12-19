@@ -10,6 +10,7 @@
 - fix
    - bootstrap change installation method
    - install lastest lts node via nvm
+   - docker.sh make you root.. why
 
 - install
     - browser
