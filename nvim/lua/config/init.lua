@@ -24,7 +24,6 @@ require("lazy").setup({
     },
 
     { import = "plugins" },
-    -- { import = "plugins.extras.lang" },
   },
 
   install = { colorscheme = { theme } },

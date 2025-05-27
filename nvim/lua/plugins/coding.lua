@@ -30,4 +30,13 @@ return {
       "yaml",
     },
   },
+
+  -- NOTE: temporary. waiting for https://github.com/LazyVim/LazyVim/pull/5829/files to be merged
+  {
+    "linux-cultist/venv-selector.nvim",
+    enabled = true,
+    -- enabled = function()
+    --   return LazyVim.has("telescope.nvim")
+    -- end,
+  },
 }

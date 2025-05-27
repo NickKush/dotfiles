@@ -21,6 +21,7 @@ return {
   },
 
   -- enchanced search
+  -- TODO: needed?
   {
     "folke/flash.nvim",
     -- stylua: ignore
@@ -34,65 +35,7 @@ return {
   },
 
   {
-    "nvim-telescope/telescope.nvim",
-    keys = function()
-      local builtin = require("telescope.builtin")
-
-      return {
-        { "<leader>/", builtin.live_grep, desc = "Live Grep" },
-        { "<leader>n", builtin.find_files, desc = "Find Files" },
-        { "<leader>,", builtin.buffers, desc = "Switch Buffer" },
-        { "<F12>", builtin.help_tags, desc = "Help Pages" },
-      }
-    end,
-
-    opts = function(_, opts)
-      local builtin = require("telescope.builtin")
-      local actions = require("telescope.actions")
-
-      local find_files_all = function()
-        local action_state = require("telescope.actions.state")
-        local line = action_state.get_current_line()
-        builtin.find_files({ hidden = true, no_ignore = true, default_text = line })
-      end
-
-      opts.defaults.mappings = {
-        i = {
-          ["<C-["] = find_files_all,
-
-          ["<C-Down>"] = actions.cycle_history_next,
-          ["<C-Up>"] = actions.cycle_history_prev,
-
-          ["<C-f>"] = actions.preview_scrolling_down,
-          ["<C-b>"] = actions.preview_scrolling_up,
-
-          ["<C-j>"] = actions.move_selection_next,
-          ["<C-k>"] = actions.move_selection_previous,
-        },
-        n = {
-          ["q"] = actions.close,
-        },
-      }
-
-      opts.pickers = {
-        find_files = {
-          previewer = false,
-        },
-
-        buffers = {
-          theme = "dropdown",
-          previewer = false,
-        },
-      }
-    end,
-  },
-
-  {
     "lewis6991/gitsigns.nvim",
-    enabled = false,
-  },
-  {
-    "folke/todo-comments.nvim",
     enabled = false,
   },
 }

@@ -10,14 +10,16 @@ echo "Updating packages..."
 apt update -y
 
 echo "Install essential packages..."
-apt install -y cmake build-essential curl xclip vim wget npm tmux openconnect
-apt install -y python3-dev python3-venv lua5.4
+apt install -y cmake build-essential curl xclip vim wget tmux openconnect fzf
 
-# For gnome specific
+echo "Install programming stuff..."
+apt install -y python3-dev python3-venv lua5.4 npm
+
+echo "Install gnome specific stuff..."
 apt install -y network-manager-openconnect network-manager-openconnect-gnome
 
-# Virtual machine stuff
+echo "Install virtual machine stuff..."
 apt install -y qemu-kvm libvirt-daemon-system
 
-# Alacrity dependencies
+echo "Install Alacrity dependencies..."
 apt install -y libfreetype6-dev libfontconfig1-dev libxcb-xixes0-dev libxkbcommon-dev

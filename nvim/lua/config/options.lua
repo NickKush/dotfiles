@@ -11,3 +11,5 @@ opt.tabstop = 4 -- Number of spaces tabs count for
 opt.swapfile = false -- Don't save swap file
 
 opt.wrap = true
+
+vim.g.snacks_animate = false -- disable all 'snacks' animations
