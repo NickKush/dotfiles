@@ -31,6 +31,14 @@ return {
     },
   },
 
+  -- log file highlight
+  {
+    "fei6409/log-highlight.nvim",
+    config = function()
+      require("log-highlight").setup({})
+    end,
+  },
+
   -- NOTE: temporary. waiting for https://github.com/LazyVim/LazyVim/pull/5829/files to be merged
   {
     "linux-cultist/venv-selector.nvim",
@@ -39,4 +47,6 @@ return {
     --   return LazyVim.has("telescope.nvim")
     -- end,
   },
+
+  { "echasnovski/mini.pairs", enabled = false },
 }

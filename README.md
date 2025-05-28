@@ -1,11 +1,10 @@
 # dotfiles
 
-## nvim todo:
-
-- remove double quoute auto placement
-- configurable ignore files. (venv)
 
 ## TODO:
+
+- auto installer
+    - curl https://github.com/something/install.sh | sh
 
 - fix
    - bootstrap change installation method
@@ -17,7 +16,6 @@
     - fonts
     - nvm
     - virtualenv
-    - alacritty
     - java >=17 for nvim-jdtls?
 
 - profile
@@ -25,21 +23,12 @@
     - change repeat keys speed
 
 - scripts
+    - get current script directory for stuff like 'source ../functions.lua'
     - create ssh key
+    - install_vim - param to show all latest versions
+    - bootstrap make install dependencies platform specific. not only 'apt install'
 
-
-## NVIM:
-- `dashboard.nvim` is now the default LazyVim starter plugin.
-
-To keep using `alpha.nvim`, please enable the `lazyvim.plugins.extras.ui.alpha` extra.
-Or to hide this message, remove the alpha spec from your config.
-Press ENTER or type command to continue
-
-
--- nvim-treesitter[html]: Error during tarball extraction.
-tar (child): tree-sitter-html.tar.gz: Cannot open: No such file or directory
-tar (child): Error is not recoverable: exiting now
-tar: Child returned status 2
-tar: Error is not recoverable: exiting now
+- nvim
+    - history search in telescope/fzf picker
 
 

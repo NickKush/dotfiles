@@ -1,6 +1,20 @@
 return {
   {
     "folke/snacks.nvim",
+    -- picker = {
+    --   opts = {
+    --     win = {
+    --       input = {
+    --         keys = {
+        --         TODO: why it doesn't work?
+    --           ["<C-Down>"] = { "history_forward", mode = { "i", "n" } },
+    --           ["<F11>"] = { "history_back", mode = { "i", "n" } },
+    --         },
+    --       },
+    --     },
+    --   },
+    -- },
+
     -- stylua: ignore
     keys = {
         { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
@@ -10,6 +24,7 @@ return {
         { "<leader>n", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
 
         { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
+
         -- find
         { "<leader>fc", LazyVim.pick.config_files(), desc = "Find Config File" },
         { "<leader>ff", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
@@ -18,6 +33,7 @@ return {
         { "<leader>fr", LazyVim.pick("oldfiles"), desc = "Recent" },
         { "<leader>fR", function() Snacks.picker.recent({ filter = { cwd = true }}) end, desc = "Recent (cwd)" },
         { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
+
         -- git
         { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (hunks)" },
         { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git Status" },
@@ -50,6 +66,7 @@ return {
         { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
         { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
         { "<leader>su", function() Snacks.picker.undo() end, desc = "Undotree" },
+
         -- ui
         { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
 
