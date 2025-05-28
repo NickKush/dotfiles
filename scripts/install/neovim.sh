@@ -1,13 +1,13 @@
 #!/bin/bash
-set -o xtrace
-
 # Download and install the latest version of neovim
 # https://github.com/neovim/neovim
 #
 # We can't download it directly from PPA, because it's not been updated...
 
 # Import common functions
-source ../functions.sh
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+
+source "$SCRIPT_DIR/../functions.sh"
 
 URL="https://api.github.com/repos/neovim/neovim/releases"
 VERSION="v0.11.1"
@@ -46,7 +46,7 @@ function install_neovim() {
 }
 
 # NOTE: don't need this, i don't use telescope anymore.
-# delete later
+# delete later if not used somewhere else...
 # function install_deps() {
 # ensure_sudo
 #
@@ -61,28 +61,57 @@ function install_neovim() {
 # rm -f fd-musl_8.4.0_amd64.deb
 # }
 
-# TODO: is nothing is passed. echo help
-while [[ $# -gt 0 ]]; do
-    key="$1"
+function echo_help() {
+    cat <<EOL
+The installer for NeoVIM
 
-    case $key in
-    -h | --help)
-        echo "Usage: neovim.sh [-h] [--list] [--install]"
+Usage: neovim.sh [OPTIONS]
+
+Options:
+  -l, --list
+        Show list of all tags
+  -i, --install
+        Install neovim and dependencies. Sudo required.
+        Current version: $VERSION
+  -h, --help
+        Print help
+  -v
+        Increase verbosity of output.
+EOL
+}
+
+main() {
+    if [ $# -eq 0 ]; then
+        echo_help
         exit 0
-        ;;
+    fi
 
-    --list)
-        list_tags
-        exit 0
-        ;;
+    while [[ $# -gt 0 ]]; do
+        key="$1"
 
-    --install)
-        install_neovim
-        exit 0
-        ;;
+        case $key in
+        -h | --help)
+            echo_help
+            exit 0
+            ;;
 
-    *) # unknown option
-        shift
-        ;;
-    esac
-done
+        -l | --list)
+            list_tags
+            exit 0
+            ;;
+
+        -i | --install)
+            install_neovim
+            exit 0
+            ;;
+        --v)
+            set -o xtrace
+            ;;
+        *) # unknown option
+            shift
+            ;;
+        esac
+    done
+}
+
+main "$@" || exit 1

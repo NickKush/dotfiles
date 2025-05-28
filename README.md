@@ -13,7 +13,6 @@
 
 - install
     - browser
-    - fonts
     - nvm
     - virtualenv
     - java >=17 for nvim-jdtls?
@@ -23,9 +22,7 @@
     - change repeat keys speed
 
 - scripts
-    - get current script directory for stuff like 'source ../functions.lua'
     - create ssh key
-    - install_vim - param to show all latest versions
     - bootstrap make install dependencies platform specific. not only 'apt install'
 
 - nvim
