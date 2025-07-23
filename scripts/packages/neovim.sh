@@ -41,25 +41,7 @@ function install_neovim() {
         cp -f nvim.appimage /usr/local/bin/vim &&
         chmod +x /usr/local/bin/vim &&
         rm -f nvim.appimage
-
-    # install_deps
 }
-
-# NOTE: don't need this, i don't use telescope anymore.
-# delete later if not used somewhere else...
-# function install_deps() {
-# ensure_sudo
-#
-# # Install fg for telescope
-# curl -sLO "https://github.com/BurntSushi/ripgrep/releases/download/14.1.0/ripgrep_14.1.0-1_amd64.deb"
-# dpkg --install --force-overwrite ripgrep_14.1.0-1_amd64.deb
-# rm -f ripgrep_14.1.0-1_amd64.deb
-#
-# # Install fd for telescope
-# curl -sLO "https://github.com/sharkdp/fd/releases/download/v8.4.0/fd-musl_8.4.0_amd64.deb"
-# dpkg --install --force-overwrite fd-musl_8.4.0_amd64.deb
-# rm -f fd-musl_8.4.0_amd64.deb
-# }
 
 function echo_help() {
     cat <<EOL
@@ -81,37 +63,44 @@ EOL
 }
 
 main() {
-    if [ $# -eq 0 ]; then
-        echo_help
-        exit 0
+    if is_arch; then
+        install_package neovim
+        ln -sf $(which nvim) /usr/local/bin/vim
     fi
 
-    while [[ $# -gt 0 ]]; do
-        key="$1"
-
-        case $key in
-        -h | --help)
+    if is_debian; then
+        if [ $# -eq 0 ]; then
             echo_help
             exit 0
-            ;;
+        fi
 
-        -l | --list)
-            list_tags
-            exit 0
-            ;;
+        while [[ $# -gt 0 ]]; do
+            key="$1"
 
-        -i | --install)
-            install_neovim
-            exit 0
-            ;;
-        --v)
-            set -o xtrace
-            ;;
-        *) # unknown option
-            shift
-            ;;
-        esac
-    done
+            case $key in
+            -h | --help)
+                echo_help
+                exit 0
+                ;;
+
+            -l | --list)
+                list_tags
+                exit 0
+                ;;
+
+            -i | --install)
+                install_neovim
+                exit 0
+                ;;
+            --v)
+                set -o xtrace
+                ;;
+            *) # unknown option
+                shift
+                ;;
+            esac
+        done
+    fi
 }
 
 main "$@" || exit 1

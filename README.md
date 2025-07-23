@@ -3,17 +3,14 @@
 
 ## TODO:
 
-- auto installer
-    - curl https://github.com/something/install.sh | sh
 
 - fix
-   - bootstrap change installation method
    - install lastest lts node via nvm
    - docker.sh make you root.. why
+   - put go path in env
 
 - install
     - browser
-    - nvm
     - virtualenv
     - java >=17 for nvim-jdtls?
 
@@ -23,9 +20,10 @@
 
 - scripts
     - create ssh key
-    - bootstrap make install dependencies platform specific. not only 'apt install'
+    - make auto installer
 
 - nvim
     - history search in telescope/fzf picker
+    - ruby
 
 
