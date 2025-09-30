@@ -62,7 +62,7 @@ function install_package() {
     fi
 
     case $OS_DISTRO in
-    ubuntu)
+    debian)
         apt install -y $@
         ;;
     arch)

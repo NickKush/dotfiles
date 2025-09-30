@@ -9,11 +9,11 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 
 source "$SCRIPT_DIR/../functions.sh"
 
-URL="https://api.github.com/repos/neovim/neovim/releases"
-VERSION="v0.11.1"
+NEOVIM_URL="https://api.github.com/repos/neovim/neovim/releases"
+NEOVIM_VERSION="v0.11.1"
 
 function list_tags() {
-    tags_result=$(curl -s "$URL" | grep "tag_name" | cut -d '"' -f 4)
+    tags_result=$(curl -s "$NEOVIM_URL" | grep "tag_name" | cut -d '"' -f 4)
     readarray -t array <<<"$tags_result"
 
     limit=10
@@ -31,7 +31,7 @@ function install_neovim() {
     ensure_sudo
 
     download_url=$(
-        curl -s "$URL/tags/$VERSION" |
+        curl -s "$NEOVIM_URL/tags/$NEOVIM_VERSION" |
             grep "browser_download_url" |
             grep "nvim.*linux.*x86.*appimage\"$" |
             cut -d '"' -f 4
@@ -46,6 +46,7 @@ function install_neovim() {
 function echo_help() {
     cat <<EOL
 The installer for NeoVIM
+Current version: $NEOVIM_VERSION
 
 Usage: neovim.sh [OPTIONS]
 
@@ -54,7 +55,6 @@ Options:
         Show list of all tags
   -i, --install
         Install neovim and dependencies. Sudo required.
-        Current version: $VERSION
   -h, --help
         Print help
   -v
