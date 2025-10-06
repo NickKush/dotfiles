@@ -10,7 +10,7 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 source "$SCRIPT_DIR/../functions.sh"
 
 NEOVIM_URL="https://api.github.com/repos/neovim/neovim/releases"
-NEOVIM_VERSION="v0.11.1"
+NEOVIM_VERSION="v0.11.4"
 
 function list_tags() {
     tags_result=$(curl -s "$NEOVIM_URL" | grep "tag_name" | cut -d '"' -f 4)

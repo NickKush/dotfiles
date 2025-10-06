@@ -15,7 +15,7 @@ if is_debian; then
     DOWNLOAD_URL=$(
         curl -s https://api.github.com/repos/jesseduffield/lazygit/releases/latest |
             grep "browser_download_url" |
-            grep Linux_x86_64.tar.gz |
+            grep -i linux_x86_64.tar.gz |
             cut -d '"' -f 4
     )
 

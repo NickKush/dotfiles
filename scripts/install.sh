@@ -24,7 +24,7 @@ function install_essentials() {
         install_package qemu-kvm libvirt-daemon-system
 
         echo "Installing Alacrity dependencies..."
-        install_package libfreetype6-dev libfontconfig1-dev libxcb-xixes0-dev libxkbcommon-dev
+        install_package g++ pkg-config libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev
     fi
 
     if is_arch; then
