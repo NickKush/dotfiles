@@ -5,23 +5,23 @@ set -o xtrace
 # https://github.com/alacritty/alacritty/blob/master/INSTAll.md
 
 if ! cargo -v &>/dev/null; then
-	echo "Cargo is not installed."
-	exit 1
+    echo "Cargo is not installed."
+    exit 1
 fi
 
 FOLDER="/tmp/alacrity"
 
 if [ -d $FOLDER ]; then
-	echo "Directory exists. Removing..."
-	rm -rf $FOLDER
+    echo "Directory exists. Removing..."
+    rm -rf $FOLDER
 fi
 
 mkdir $FOLDER
 cd $FOLDER
 echo "Current directory: $PWD"
 
-# Version 0.13.2
-git clone --depth 1 --branch v0.13.2 https://github.com/alacritty/alacritty.git
+# Version 0.15.1
+git clone --depth 1 --branch v0.15.1 https://github.com/alacritty/alacritty.git
 cd alacritty
 
 cargo build --release
