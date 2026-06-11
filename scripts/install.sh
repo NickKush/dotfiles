@@ -35,6 +35,14 @@ function install_essentials() {
         # echo "Install VM stuff..."
         # install_package virt-manager
     fi
+
+    if [ ! -d "/home/$SUDO_USER/.tmux/plugins/tpm" ]; then
+        echo "Installing TPM..."
+        sudo -u $SUDO_USER git clone https://github.com/tmux-plugins/tpm \
+            /home/$SUDO_USER/.tmux/plugins/tpm
+    else
+        echo "TPM already installed, skipping..."
+    fi
 }
 
 function start() {
