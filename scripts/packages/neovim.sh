@@ -41,6 +41,11 @@ function install_neovim() {
         cp -f nvim.appimage /usr/local/bin/vim &&
         chmod +x /usr/local/bin/vim &&
         rm -f nvim.appimage
+
+    # fd for neovim plugins
+    curl -sLO "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-musl_10.3.0_amd64.deb" &&
+        dpkg --install --force-overwrite fd-musl_10.3.0_amd64.deb &&
+        rm -f fd-musl_10.3.0_amd64.deb
 }
 
 function echo_help() {
