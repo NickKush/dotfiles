@@ -10,7 +10,7 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 source "$SCRIPT_DIR/../functions.sh"
 
 NEOVIM_URL="https://api.github.com/repos/neovim/neovim/releases"
-NEOVIM_VERSION="v0.11.4"
+NEOVIM_VERSION="v0.12.3"
 
 function list_tags() {
     tags_result=$(curl -s "$NEOVIM_URL" | grep "tag_name" | cut -d '"' -f 4)
@@ -46,6 +46,12 @@ function install_neovim() {
     curl -sLO "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-musl_10.3.0_amd64.deb" &&
         dpkg --install --force-overwrite fd-musl_10.3.0_amd64.deb &&
         rm -f fd-musl_10.3.0_amd64.deb
+
+    # fzf dependencies
+    curl -sLO "https://github.com/junegunn/fzf/releases/download/v0.73.1/fzf-0.73.1-linux_amd64.tar.gz" &&
+        tar -xzf fzf-0.73.1-linux_amd64.tar.gz &&
+        sudo mv fzf /usr/local/bin/fzf &&
+        rm fzf-0.73.1-linux_amd64.tar.gz
 }
 
 function echo_help() {

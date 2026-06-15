@@ -19,7 +19,7 @@ return {
 
   {
     -- Cool, but annoying in some cases. Probably review it later
-    "echasnovski/mini.pairs",
+    "nvim-mini/mini.pairs",
     enabled = false,
   },
 }

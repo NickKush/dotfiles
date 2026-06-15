@@ -10,7 +10,7 @@ function install_essentials() {
     update_packages
 
     echo "Installing based packages..."
-    install_package cmake curl xclip wget vim tmux fzf
+    install_package cmake curl xclip wget vim tmux
 
     echo "Installing dev packages..."
     install_package npm
