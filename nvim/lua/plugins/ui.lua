@@ -52,11 +52,6 @@ return {
     },
   },
 
-  {
-    "folke/noice.nvim",
-    enabled = false,
-  },
-
   -- notifications
   {
     "snacks.nvim",

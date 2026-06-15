@@ -1,6 +1,6 @@
 return {
-  -- file tree
   {
+    -- File tree
     "nvim-neo-tree/neo-tree.nvim",
     keys = function()
       return {
@@ -20,23 +20,14 @@ return {
     end,
   },
 
-  -- enchanced search
-  -- TODO: needed?
   {
-    "folke/flash.nvim",
-    enabled = false,
-    -- -- stylua: ignore
-    -- keys = {
-    --   { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-    --   { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-    --   { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-    --   { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-    --   { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-    -- },
-  },
-
-  {
-    "lewis6991/gitsigns.nvim",
-    enabled = false,
+    -- Search
+    "ibhagwan/fzf-lua",
+    opts = {
+      fzf_opts = {
+        ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history",
+        ["--history-size"] = 100,
+      },
+    },
   },
 }

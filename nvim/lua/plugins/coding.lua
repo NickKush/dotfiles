@@ -47,6 +47,4 @@ return {
     --   return LazyVim.has("telescope.nvim")
     -- end,
   },
-
-  { "echasnovski/mini.pairs", enabled = false },
 }
